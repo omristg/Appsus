@@ -30,6 +30,7 @@
 .note-preview button {
     color: white;
     background-color: #2F435A;
+    font-size: .8rem;
 }
 
 .note-preview button:hover {

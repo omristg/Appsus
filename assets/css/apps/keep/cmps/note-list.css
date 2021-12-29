@@ -1,5 +1,6 @@
 .note-list {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: .5rem;
+    gap: 0.5rem;
+    align-items: start;
 }
