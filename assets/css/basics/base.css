@@ -1,0 +1,37 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Ubuntu', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #D0B49F;
+    color: black;
+    font-size: 1.05rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    padding: 0;
+}
+
+button {
+    background-color: #AB6B51;
+    font-size: 1.1rem;
+    border-radius: .4rem;
+    border: none;
+    cursor: pointer;
+    padding: .35rem .7rem;
+    transition: all .3s;
+    font-family: inherit;
+}
+
+button:hover {
+    background-color: #39918C;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}

@@ -1,0 +1,24 @@
+.book-preview {
+    background-color: #AB6B51;
+    padding: 1rem;
+    border-radius: .7rem;
+    cursor: pointer;
+    transition: all .3s;
+}
+
+.book-preview:hover {
+    transform: scale(1.05);
+}
+
+.book-preview h2 {
+    margin-bottom: 1rem;
+    text-transform: capitalize;
+}
+
+.book-preview .price {
+    margin-top: .6rem;
+}
+
+.book-preview img {
+    width: 100%;
+}

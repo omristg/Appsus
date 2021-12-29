@@ -1,0 +1,17 @@
+.review-list h3 {
+    text-align: start;
+    font-size: 1.6rem;
+}
+
+.review-list main {
+    /* display: grid;
+    justify-content: flex-start;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.review-list h3 {
+    margin-bottom: 1.2rem;
+}

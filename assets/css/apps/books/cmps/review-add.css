@@ -1,0 +1,18 @@
+.review-add {
+    position: fixed;
+    border: 1px solid black;
+    background-color: blanchedalmond;
+    padding: 1rem;
+}
+
+.review-add form>* {
+    margin: .3rem;
+}
+
+.review-add form label {
+    font-weight: bold;
+}
+
+.review-add h2 {
+    margin-bottom: .5rem;
+}

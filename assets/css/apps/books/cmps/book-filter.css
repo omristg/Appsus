@@ -1,0 +1,35 @@
+
+.book-filter {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(150px, 1fr));
+    gap: 1rem;
+    margin-bottom: .8rem;
+
+}
+
+.book-filter input {
+    border-radius: 5px;
+    border: none;
+    font-family: inherit;
+    padding: .3rem 0;
+    padding-inline-start: .5rem;
+}
+
+.book-filter input:focus-visible {
+    outline: none;
+}
+
+/* .book-filter label {
+    cursor: pointer;
+    color: whitesmoke;
+}
+
+.book-filter input,
+.book-filter label {
+    padding-top: .2rem;
+    padding-bottom: .2rem;
+}
+
+.book-filter>*:only-of-type button {
+    grid-column: 3/5;
+} */

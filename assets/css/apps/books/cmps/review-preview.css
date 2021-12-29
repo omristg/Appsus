@@ -1,0 +1,17 @@
+
+
+.reviews-preview>* {
+    margin-bottom: 0.3rem;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.reviews-preview span {
+    display: inline-block;
+    padding-inline-end: 0.3rem;
+    font-weight: bold;
+}
+
+.reviews-preview div:last-of-type {
+    margin-bottom: 0.9rem;
+}

@@ -1,0 +1,22 @@
+.user-msg {
+    position: fixed;
+    bottom: 5%;
+    right: 5%;
+    padding: 2rem 2.5rem;
+    background-color: #2F435A;
+    border-radius: 0.3rem;
+    color: white;
+    transition: all 0.3s;
+}
+
+.user-msg button {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background-color: #D0B49F;
+    padding: 0.1rem 0.3rem;
+}
+
+.user-msg button:hover {
+    background-color: #AB6B51;
+}
