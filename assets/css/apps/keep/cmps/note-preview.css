@@ -22,3 +22,12 @@
 .note-preview ul li:hover {
     transform: scale(1.02);
 }
+
+.note-preview button {
+    color: white;
+    background-color: #2F435A;
+}
+
+.note-preview button:hover {
+    background-color: #39918C;
+}
