@@ -1,4 +1,4 @@
-export class MailIndex extends React.Component {
+export class MailApp extends React.Component {
 
 
     render () {

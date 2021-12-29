@@ -14,9 +14,9 @@
 @import "./cmps/user-msg.css";
 
 
-/* Pages */
-@import "./cmps/app-about.css";
-@import "./cmps/app-home.css";
+/* Main Pages */
+@import "./pages/app-about.css";
+@import "./pages/app-home.css";
 
 
 
@@ -26,9 +26,7 @@
 @import "./apps/books/cmps/book-add.css";
 @import "./apps/books/cmps/book-categories.css";
 @import "./apps/books/cmps/book-filter.css";
-
 @import "./apps/books/cmps/book-list.css";
-
 @import "./apps/books/cmps/book-preview.css";
 @import "./apps/books/cmps/books-search-opts.css";
 @import "./apps/books/cmps/review-add.css";
@@ -39,3 +37,28 @@
 
 @import "./apps/books/pages/book-app.css";
 @import "./apps/books/pages/book-details.css";
+
+
+
+
+/* KEEP App */
+
+/* Keep cmps */
+@import "./apps/keep/cmps/note-preview.css";
+
+/* Keep Pages */
+
+@import "./apps/keep/pages/note-app.css";
+@import "./apps/keep/pages/note-details.css";
+
+
+/* MAIL App */
+
+/* Mail cmps */
+
+@import "./apps/email/cmps/mail-preview.css";
+
+/* Mail Pages */
+
+@import "./apps/email/pages/mail-app.css";
+@import "./apps/email/pages/mail-details.css";

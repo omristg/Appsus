@@ -13,7 +13,6 @@ export function AppHeader() {
                 <NavLink activeClassName="my-active" to="/note">Keep</NavLink>
                 <NavLink activeClassName="my-active"  to="/mail">Mail</NavLink>
             </nav>
-
         </header>
     )
 }
