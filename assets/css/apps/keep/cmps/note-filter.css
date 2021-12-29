@@ -1,0 +1,17 @@
+.note-filter {
+    margin-bottom: .6rem;
+}
+
+.note-filter>* {
+    padding: 0.3rem;
+}
+
+.note-filter select {
+    border-radius: .3rem;
+    padding: .1rem;
+    margin-inline-start: .3rem;
+}
+
+.note-filter label {
+    font-weight: bold;
+}

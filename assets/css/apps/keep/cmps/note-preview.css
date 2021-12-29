@@ -4,6 +4,10 @@
     cursor: pointer;
     transition: transform 0.3s;
     border-radius: .3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
 }
 
 .note-preview:hover {

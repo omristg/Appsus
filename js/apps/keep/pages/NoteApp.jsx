@@ -44,7 +44,6 @@ export class NoteApp extends React.Component {
         if (!notes) return <Loader />
         return (
             <section className="note-app">
-                <h2>Keep</h2>
                 <NoteFilter onSetFilter={this.onSetFilter} />
                 <NoteList onSelectNote={this.onSelectNote} onRemoveNote={this.onRemoveNote} notes={notes} />
                 {selectedNote && <NoteDetails note={selectedNote} onGoBack={this.onGoBack} />}

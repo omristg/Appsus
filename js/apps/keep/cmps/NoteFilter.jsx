@@ -30,6 +30,7 @@ export class NoteFilter extends React.Component {
                         <option value="note-txt">Text</option>
                         <option value="note-todos">Todos</option>
                         <option value="note-img">Images</option>
+                        <option value="">All</option>
                     </select>
                 </form>
             </section>

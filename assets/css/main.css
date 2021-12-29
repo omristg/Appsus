@@ -46,6 +46,7 @@
 /* Keep cmps */
 @import "./apps/keep/cmps/note-preview.css";
 @import "./apps/keep/cmps/note-list.css";
+@import "./apps/keep/cmps/note-filter.css";
 /* @import "./apps/keep/cmps/note-todos.css"; */
 
 /* Keep Pages */

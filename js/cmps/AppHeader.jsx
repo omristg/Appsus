@@ -5,7 +5,7 @@ export function AppHeader() {
 
     return (
         <header className="app-header main-layout">
-            <h1>Miss Book</h1>
+            <h1>Appsus</h1>
             <nav className="main-nav">
                 <NavLink activeClassName="my-active" exact to="/">Home</NavLink>
                 <NavLink activeClassName="my-active" to="/about">About</NavLink>
