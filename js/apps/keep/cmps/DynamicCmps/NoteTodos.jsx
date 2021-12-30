@@ -1,20 +1,38 @@
 import { NoteTodoSingle } from './NoteTodoSingle.jsx'
 
-export function NoteTodos(props) {
+export class NoteTodos extends React.Component {
+    state = {
+        isNoteSelected: false
+    }
 
-    const { note, onRemoveNote } = props
-    // console.log(note);
+    onToggleNoteSelected = () => {
+        this.setState({ isNoteSelected: !this.state.isNoteSelected })
+    }
 
-    return (
-        <div className="note-preview" >
-            <h4>{note.info.label}</h4>
-            <ul className="note-todos">
-                {note.info.todos.map((todo, idx) => {
-                    return <NoteTodoSingle key={idx} idx={idx} todo={todo} />
-                })}
-            </ul>
-            <button className="fa trash" onClick={() => onRemoveNote(note)}></button>
-        </div>
-    )
+
+    componentDidUpdate(prevProps, prevState) {
+        // console.log(this.state);
+    }
+    
+    
+    render() {
+
+        const { note, onRemoveNote } = this.props
+        const { label, todos } = note.info
+        const { isNoteSelected } = this.state
+        return (
+            <div className="note-preview" >
+                <h4>{label}</h4>
+                <ul className="note-todos">
+                    {todos.map((todo, idx) => {
+                        return <NoteTodoSingle key={idx} idx={idx} todo={todo} isNoteSelected={isNoteSelected} />
+                    })}
+                </ul>
+                <button className="fa trash" onClick={() => onRemoveNote(note)}></button>
+                <button onClick={this.onToggleNoteSelected} >edit</button>
+            </div>
+        )
+
+    }
 }
 

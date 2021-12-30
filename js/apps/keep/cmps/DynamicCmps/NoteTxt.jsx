@@ -8,11 +8,6 @@ export class NoteTxt extends React.Component {
 
     }
 
-    componentDidMount() {
-        console.log(this.props);
-    }
-
-
     onToggleNoteSelected = () => {
         this.setState({ isNoteSelected: !this.state.isNoteSelected })
     }
@@ -24,7 +19,6 @@ export class NoteTxt extends React.Component {
         this.setState((prevState) => ({ ...prevState, [field]: value }))
     }
 
-
     onSubmitEdit = (ev) => {
         ev.preventDefault();
         const { txt } = this.state
@@ -32,7 +26,6 @@ export class NoteTxt extends React.Component {
         note.info.txt = txt
         noteService.saveNote(note).then(this.props.loadNotes())
         this.onToggleNoteSelected()
-
     }
 
     render() {
@@ -54,7 +47,9 @@ export class NoteTxt extends React.Component {
         else return (
             <section className="note-preview" >
                 <form className="note-txt-form">
-                    <input type="text" name="txt" value={txt} onChange={this.handleChange} />
+                    <textarea name="txt" cols="20" rows="10"
+                     value={txt} onChange={this.handleChange}
+                    ></textarea>
                 </form>
                 <div className="note-btns-container">
                     <button className="fa trash" onClick={() => onRemoveNote(note)}></button>
