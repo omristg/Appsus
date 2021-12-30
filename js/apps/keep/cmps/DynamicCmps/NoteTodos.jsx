@@ -10,7 +10,7 @@ export function NoteTodos(props) {
             <h4>{note.info.label}</h4>
             <ul className="note-todos">
                 {note.info.todos.map((todo, idx) => {
-                    return <NoteTodoSingle key={note.id} idx={idx} todo={todo} />
+                    return <NoteTodoSingle key={idx} idx={idx} todo={todo} />
                 })}
             </ul>
             <button className="fa trash" onClick={() => onRemoveNote(note)}></button>

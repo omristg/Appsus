@@ -54,7 +54,6 @@ function _createNotes() {
 
         ]
     }
-    console.log(notes);
     _saveToStorage(notes)
 }
 

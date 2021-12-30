@@ -10,7 +10,6 @@ export class UserMsg extends React.Component {
     timeoutId = null
 
     componentDidMount() {
-        console.log('yes!');
         this.removeEventBus = eventBusService.on('user-msg', (msg) => {
             // clearTimeout(this.timeoutId)
             this.setState({ msg }, this.onAutoClose)
