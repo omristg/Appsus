@@ -1,17 +1,19 @@
 // import { MailList } from "./MailList.jsx"
 // const {Link} = ReactRouterDOM
 
-export function MailPreview({ mail }) {
+export function MailPreview({ mail, getMailToOpen }) {
     
-    // console.log(mail.id);
+    function setMailToOpen() {
+        getMailToOpen(mail.id)
+    }
     
     return (
             <tr>
                 <td>⭐</td>
-                <td>{mail.sentFrom}</td>
-                <td>{mail.subject}</td>
-                <td>{mail.arrivedDate.month}</td>
-                <td>{mail.arrivedDate.dayNum}</td>
+                <td onClick={setMailToOpen}>{mail.sentFrom}</td>
+                <td onClick={setMailToOpen}>{mail.subject}</td>
+                <td onClick={setMailToOpen}>{mail.arrivedDate.month}</td>
+                <td onClick={setMailToOpen}>{mail.arrivedDate.dayNum}</td>
                 {/* <td><button className="fa trash" onClick={() => onRemoveNote(note)}></button></td> */}
             </tr>
     )

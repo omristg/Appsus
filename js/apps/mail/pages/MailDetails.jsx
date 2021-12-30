@@ -1,4 +1,4 @@
-export class MailDetails extends React.Component {
+export class MailOpenToRead extends React.Component {
 
     render() {
         return (
