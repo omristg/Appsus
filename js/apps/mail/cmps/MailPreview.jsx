@@ -1,9 +1,11 @@
-
+// import { MailList } from "./MailList.jsx"
 // const {Link} = ReactRouterDOM
 
 export function MailPreview({ mail }) {
-    console.log(mail);
-
+    
+    // console.log(mail.id);
+    
+    
     return (
             <tr>
                 <td>⭐</td>
@@ -11,11 +13,7 @@ export function MailPreview({ mail }) {
                 <td>{mail.subject}</td>
                 <td>{mail.arrivedDate.month}</td>
                 <td>{mail.arrivedDate.dayNum}</td>
-                {/* <MailTdPreview mail={mail} key={mail.id} /> */}
+                {/* <td><button className="delete-mail" onClick={onSetDeleteMail(mail.id)}>Trash</button></td> */}
             </tr>
     )
 }
-
-{/* <div className="enteredMail"></div> */ }
-{/* <MailSearch /> */ }
-{/* <MailNav /> */ }

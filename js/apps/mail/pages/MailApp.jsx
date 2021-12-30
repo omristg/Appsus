@@ -1,7 +1,8 @@
 import { mailService } from '../services/mail.service.js';
 import { MailList } from '../cmps/MailList.jsx';
+import { MailSearch } from '../cmps/MailSearch.jsx';
+import { MailNav } from '../cmps/MailNav.jsx';
 
-// import { Loader } from '../../../cmps/Loader.jsx';
 
 
 export class MailApp extends React.Component {
@@ -9,6 +10,7 @@ export class MailApp extends React.Component {
     state = {
         mails: null,
         filterBy: null,
+        selectedMail: null,
     }
 
     componentDidMount() {
@@ -23,25 +25,35 @@ export class MailApp extends React.Component {
             })
     }
 
-    // onSetFilter = (filterBy) => {
-    //     this.setState({ filterBy }, this.loadMails)
-    // }
+    onSetFilter = (filterBy) => {
+        this.setState({ filterBy }, this.loadMails)
+    }
+
+    openCompose = ()=> {
+        console.log('New Message');
+    }
+    
+    mailSearchFor = (val) => {console.log('searching', val)}
 
     render() {
         const { mails } = this.state
-        console.log(mails);
-        if (!mails) return <h2>bbb</h2>
+        if (!mails) return <h2>There is no mail to show</h2>
         return (
             <section className="mail-app-container">
-                <div className="mail-serch-bar">
+                <div className="mail-header">
+                    <h1>Email LOGO</h1>
+                    <MailSearch mails={mails} mailSearchFor={this.mailSearchFor} />
+                </div>
+                <div className="mail-nav">
+                <button onClick={this.openCompose}>➕Compuse</button>
+                    <MailNav />
                 </div>
                 <h2>This is Mail</h2>
-                <div className="mail-preview">
-                <MailList mails={mails} />
+                <div className="main-preview">
+                    <MailList mails={mails} />
                 </div>
             </section>
         )
     }
 }
 
-// onSetMailNav={this.onSetMailNav}
