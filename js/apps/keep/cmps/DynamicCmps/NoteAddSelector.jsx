@@ -14,7 +14,6 @@ export class NoteAddSelector extends React.Component {
 
 
     onSelectType = (type) => {
-        console.log(type);
         this.setState({ selectedType: type })
         this.onToggleNotesOpts()
         this.onToggleIsTypeSelected()

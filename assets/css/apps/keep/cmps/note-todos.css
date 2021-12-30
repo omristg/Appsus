@@ -1,4 +1,32 @@
 .note-todos {
-    padding: 0;
-    margin: 0;
+    align-self: flex-start;
+    padding-inline-start: .4rem;
+}
+
+.note-todos li {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.note-todos li span {
+    display: block;
+}
+
+.note-todos li span:hover {
+    cursor: pointer;
+}
+
+.note-todos li span.todo-done {
+    text-decoration: line-through;
+}
+
+.note-todos li button {
+    padding: 0.3rem;
+    background-color: unset;
+    color: inherit;
+}
+
+.note-todos li button:hover {
+    background-color: #2F435A;
 }

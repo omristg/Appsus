@@ -58,6 +58,7 @@ function _createNotes() {
     _saveToStorage(notes)
 }
 
+
 function saveNote(noteToSave) {
     return noteToSave.id ? _updateNote(noteToSave) : _addNote(noteToSave);
 }

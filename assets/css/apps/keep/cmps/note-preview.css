@@ -1,7 +1,6 @@
 .note-preview {
     background-color: #AB6B51;
     padding: .5rem;
-    cursor: pointer;
     transition: transform 0.3s;
     border-radius: .3rem;
     display: flex;
@@ -39,4 +38,3 @@
 .note-preview button:hover {
     background-color: #39918C;
 }
-
