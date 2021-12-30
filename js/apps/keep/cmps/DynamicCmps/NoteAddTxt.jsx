@@ -46,6 +46,7 @@ export class NoteAddTxt extends React.Component {
     render() {
 
         const { txt } = this.state
+        const { onToggleIsTypeSelected } = this.props
 
         return (
             <section className="note-add-txt item-center">
@@ -54,8 +55,11 @@ export class NoteAddTxt extends React.Component {
                     <textarea name="txt" cols="30" rows="10"
                         value={txt} onChange={this.handleChange}
                     ></textarea>
-                    <button onSubmit={this.onSubmit}>Add</button>
                 </form>
+                <footer>
+                    <button onClick={this.onSubmit}>Add</button>
+                    <button onClick={onToggleIsTypeSelected}>Canel</button>
+                </footer>
             </section>
         )
     }
