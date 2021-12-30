@@ -31,8 +31,9 @@ function _createInboxMails() {
                     month: "Dec",
                     dayNum: 28,
                 },
-                isStared: false,
+                isStarred: false,
                 isChecked: false,
+                isRead: true,
                 readDate: [{
                     day: "Tue",
                     month: "Dec",
@@ -40,7 +41,7 @@ function _createInboxMails() {
                 }]
             },
             {
-                id: "opiwejfnje",
+                id: "kjsdvjjnsduk",
                 sentFrom: "Puki",
                 subject: "lorem euismod dictumst inceptos mi",
                 mailContent: "placerat nisi sodales suscipit tellus tincidunt mauris elit sit luctus interdum ad dictum platea vehicula conubia fermentum habitasse congue suspendisse",
@@ -49,8 +50,28 @@ function _createInboxMails() {
                     month: "Dec",
                     dayNum: 27,
                 },
-                isStared: false,
+                isStarred: false,
                 isChecked: false,
+                isRead: false,
+                readDate: [{
+                    day: "",
+                    month: "",
+                    dayNum: "",
+                }]
+            },
+            {
+                id: "opiwejfnje",
+                sentFrom: "shuki",
+                subject: "lorem euismod dictumst inceptos mi",
+                mailContent: "placerat nisi sodales suscipit tellus tincidunt mauris elit sit luctus interdum ad dictum platea vehicula conubia fermentum habitasse congue suspendisse",
+                arrivedDate: {
+                    day: "Mon",
+                    month: "Dec",
+                    dayNum: 27,
+                },
+                isStarred: false,
+                isChecked: false,
+                isRead: true,
                 readDate: [{
                     day: "Mon",
                     month: "Dec",
