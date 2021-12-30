@@ -6,7 +6,7 @@ export class NoteAddTxt extends React.Component {
     }
 
     componentDidMount() {
-        console.log(this.props);
+        // console.log(this.props);
     }
 
 
@@ -56,10 +56,10 @@ export class NoteAddTxt extends React.Component {
                         value={txt} onChange={this.handleChange}
                     ></textarea>
                 </form>
-                <footer>
+                <div className="btns-container">
                     <button onClick={this.onSubmit}>Add</button>
-                    <button onClick={onToggleIsTypeSelected}>Canel</button>
-                </footer>
+                    <button onClick={onToggleIsTypeSelected}>Cancel</button>
+                </div>
             </section>
         )
     }

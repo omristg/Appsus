@@ -9,9 +9,7 @@ export class NoteAddSelector extends React.Component {
 
     onToggleNotesOpts = () => {
         this.setState({ isNotesOptsOpen: !this.state.isNotesOptsOpen })
-
     }
-
 
     onSelectType = (type) => {
         this.setState({ selectedType: type })
@@ -24,7 +22,6 @@ export class NoteAddSelector extends React.Component {
     }
 
 
-
     render() {
         const { isNotesOptsOpen, isTypeSelected, selectedType } = this.state
         const { loadNotes } = this.props
@@ -35,7 +32,7 @@ export class NoteAddSelector extends React.Component {
                 {isNotesOptsOpen && <div>
                     <button onClick={() => { this.onSelectType('note-txt') }}>Text</button>
                     <button onClick={() => { this.onSelectType('note-todos') }}>Todos</button>
-                    <button onClick={() => { this.onSelectType('note-img') }}>Image</button>
+                    {/* <button onClick={() => { this.onSelectType('note-img') }}>Image</button> */}
                 </div>}
                 {isTypeSelected && <NoteAdd selectedType={selectedType} loadNotes={loadNotes}
                     onToggleIsTypeSelected={this.onToggleIsTypeSelected} />}
