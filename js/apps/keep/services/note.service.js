@@ -62,48 +62,13 @@ function saveNote(noteToSave) {
     return noteToSave.id ? _updateNote(noteToSave) : _addNote(noteToSave);
 }
 
-const newNote = {
-    id: null,
-    type: 'note-txt',
-    isPinned: false,
-    info: { txt: 'Im a new note' }
-
-}
-
 
 function _addNote(noteToSave) {
-    const newNote = _createNote(noteToSave)
+    const newNote = { ...noteToSave, id: utilService.makeId() }
     const notes = _loadFromStorage()
     notes.unshift(newNote)
     _saveToStorage(notes)
     return Promise.resolve()
-
-}
-
-function _createTxtNote(noteToSave) {
-    const { txt } = noteToSave.info
-    return {
-        id: utilService.makeId(),
-        type: 'note-txt',
-        isPinned: false,
-        info: { txt: txt }
-    }
-}
-
-
-function _createNote(noteToSave) {
-    switch (noteToSave.type) {
-        case 'note-txt': return _createTxtNote(noteToSave)
-        case 'note-todos': return _createTodosNote(noteToSave)
-        case 'note-img': return _createImgNote(noteToSave)
-    }
-}
-
-function _createTodosNote(noteToSave) {
-
-}
-
-function _createImgNote(noteToSave) {
 
 }
 

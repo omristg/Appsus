@@ -1,0 +1,16 @@
+.note-add-txt {
+    position: fixed;
+    background-color: #2F435A;
+    padding: 1.5rem;
+    border-radius: .5rem;
+}
+
+.note-add-txt h4 {
+    margin-bottom: 1rem;
+}
+
+.note-add-txt form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem
+}
