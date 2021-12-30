@@ -3,7 +3,7 @@ import { MailList } from '../cmps/MailList.jsx';
 import { MailSearch } from '../cmps/MailSearch.jsx';
 import { MailNav } from '../cmps/MailNav.jsx';
 
-
+// export 
 
 export class MailApp extends React.Component {
 
@@ -26,14 +26,15 @@ export class MailApp extends React.Component {
     }
 
     onSetFilter = (filterBy) => {
-        this.setState({ filterBy }, this.loadMails)
+        console.log(filterBy);
+        // this.setState({ filterBy }, this.loadMails)
     }
 
-    openCompose = ()=> {
+    openCompose = () => {
         console.log('New Message');
     }
-    
-    mailSearchFor = (val) => {console.log('searching', val)}
+
+    mailSearchFor = (val) => { console.log('searching', val) }
 
     render() {
         const { mails } = this.state
@@ -44,14 +45,14 @@ export class MailApp extends React.Component {
                     <h1>Email LOGO</h1>
                     <MailSearch mails={mails} mailSearchFor={this.mailSearchFor} />
                 </div>
-                <div className="mail-nav">
-                <button onClick={this.openCompose}>➕Compuse</button>
-                    <MailNav />
-                </div>
-                <h2>This is Mail</h2>
-                <div className="main-preview">
-                    <MailList mails={mails} />
-                </div>
+                <main className="main-mail-preview">
+                    <div className="mail-nav-container">
+                        <button onClick={this.openCompose} >➕Compuse</button>
+                        <MailNav onSetFilter={this.onSetFilter} />
+                    </div>
+                        <MailList mails={mails} />
+                        {/* <MailOpenMessage /> */}
+                </main>
             </section>
         )
     }

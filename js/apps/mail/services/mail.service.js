@@ -24,7 +24,7 @@ function _createInboxMails() {
             {
                 id: "jksdghbcsd",
                 sentFrom: "Muki",
-                subject: "mi est eros convallis auctor arcu dapibus himenaeos",
+                subject: "mi est eros convallis auctor arcu dapibus",
                 mailContent: "placerat nisi sodales suscipit tellus tincidunt mauris elit sit luctus interdum ad dictum platea vehicula conubia fermentum habitasse congue suspendisse",
                 arrivedDate: {
                     day: "Tue",

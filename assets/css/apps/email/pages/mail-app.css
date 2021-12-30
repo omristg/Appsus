@@ -1,1 +1,43 @@
-/* dsdasds */
+/* Mail App Basics */
+
+.mail-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.mail-header>h1 {
+    cursor: pointer;
+}
+
+.main-mail-preview {
+    display: flex;
+}
+
+.mail-nav-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.mail-nav {
+    display: flex;
+    flex-direction: column;
+    /* margin-top: 30px; */
+    /* justify-content: space-between; */
+}
+
+.mail-nav>a {
+    margin-top: 10px;
+}
+
+/* .mail-nav{
+    display: flex;
+} */
+
+.mail-list>table>tbody>tr>td {
+    cursor: pointer;
+    border-top: 1px solid black ;
+}
+
+/* .mail-list>table>tbody> tr {
+} */

@@ -21,3 +21,4 @@ export function MailList({ mails }) {
         </section>
     )
 }
+

@@ -5,7 +5,6 @@ export function MailPreview({ mail }) {
     
     // console.log(mail.id);
     
-    
     return (
             <tr>
                 <td>⭐</td>
@@ -13,7 +12,8 @@ export function MailPreview({ mail }) {
                 <td>{mail.subject}</td>
                 <td>{mail.arrivedDate.month}</td>
                 <td>{mail.arrivedDate.dayNum}</td>
-                {/* <td><button className="delete-mail" onClick={onSetDeleteMail(mail.id)}>Trash</button></td> */}
+                {/* <td><button className="fa trash" onClick={() => onRemoveNote(note)}></button></td> */}
             </tr>
     )
 }
+
