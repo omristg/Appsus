@@ -45,14 +45,13 @@ export class NoteApp extends React.Component {
     }
 
     render() {
-        const { notes, selectedNote } = this.state
+        const { notes } = this.state
         if (!notes) return <Loader />
         return (
             <section className="note-app">
+                <NoteAdd/>
                 <NoteFilter onSetFilter={this.onSetFilter} />
-                <NoteList onSelectNote={this.onSelectNote} onRemoveNote={this.onRemoveNote} notes={notes} />
-                {/* {selectedNote && <Route component={NoteDetails} path="/note/:noteId"></Route>} */}
-                
+                <NoteList onSelectNote={this.onSelectNote} loadNotes={this.loadNotes} onRemoveNote={this.onRemoveNote} notes={notes} />
 
             </section>
         )
