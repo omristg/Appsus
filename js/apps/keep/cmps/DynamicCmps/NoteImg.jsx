@@ -9,7 +9,7 @@ export function NoteImg(props) {
             <div className="note-img-container">
                 <img src={info.url} alt="" />
             </div>
-            <button onClick={() => onRemoveNote(note)}>Delete</button>
+            <button className="fa trash" onClick={() => onRemoveNote(note)}></button>
         </div>
     )
 }

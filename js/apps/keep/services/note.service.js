@@ -1,9 +1,10 @@
 import { storageService } from '../../../services/storage.service.js'
 import { utilService } from '../../../services/utils.service.js'
 
-export const noteSerive = {
+export const noteService = {
     query,
-    removeNote
+    removeNote,
+    getNoteById
 }
 
 const STORAGE_KEY = 'notesDB'
@@ -57,6 +58,12 @@ function _createNotes() {
     _saveToStorage(notes)
 }
 
+function getNoteById(noteId) {
+    const notes = _loadFromStorage()
+    const note = notes.find(note => note.id === noteId)
+    return Promise.resolve(note)
+}
+
 function removeNote(noteId) {
     let notes = _loadFromStorage()
     notes = notes.filter(note => note.id !== noteId)
@@ -65,7 +72,6 @@ function removeNote(noteId) {
 
 }
 
-// Late change to filtered
 function query(filterBy = null) {
     const notes = _loadFromStorage()
     if (!filterBy) return Promise.resolve(notes)
@@ -74,8 +80,6 @@ function query(filterBy = null) {
 }
 
 function _getFilteredNote(notes, filterBy) {
-    // console.log(filterBy);
-    // console.log(notes[0].type);
     return notes.filter(note => note.type === filterBy)
 }
 
@@ -84,6 +88,6 @@ function _loadFromStorage() {
 }
 
 
-function _saveToStorage(books) {
-    storageService.saveToStorage(STORAGE_KEY, books)
+function _saveToStorage(notes) {
+    storageService.saveToStorage(STORAGE_KEY, notes)
 }

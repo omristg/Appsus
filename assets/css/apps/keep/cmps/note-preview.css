@@ -30,9 +30,13 @@
 .note-preview button {
     color: white;
     background-color: #2F435A;
-    font-size: .8rem;
+    font-size: 1.2rem;
+    border-radius: 50%;
+    padding: .8rem;
+    line-height: 1rem;
 }
 
 .note-preview button:hover {
     background-color: #39918C;
 }
+

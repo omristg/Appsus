@@ -1,9 +1,12 @@
-import { noteSerive } from '../services/note.service.js';
+import { noteService } from '../services/note.service.js';
 import { Loader } from '../../../cmps/Loader.jsx';
 
-import { NoteDetails } from './NoteDetails.jsx';
+import { NoteDetails } from '../../keep/pages/NoteDetails.jsx'
+
 import { NoteFilter } from '../cmps/NoteFilter.jsx';
 import { NoteList } from '../cmps/NoteList.jsx';
+
+const { Route } = ReactRouterDOM
 
 export class NoteApp extends React.Component {
     state = {
@@ -20,9 +23,10 @@ export class NoteApp extends React.Component {
         this.loadNotes()
     }
 
+
     loadNotes = () => {
         const { filterBy } = this.state
-        noteSerive.query(filterBy)
+        noteService.query(filterBy)
             .then(notes => this.setState({ notes }))
     }
 
@@ -31,12 +35,13 @@ export class NoteApp extends React.Component {
         this.setState({ selectedNote })
     }
 
+
     onGoBack = () => {
         this.setState({ selectedNote: null })
     }
 
     onRemoveNote = (note) => {
-        noteSerive.removeNote(note.id).then(this.loadNotes())
+        noteService.removeNote(note.id).then(this.loadNotes())
     }
 
     render() {
@@ -46,8 +51,11 @@ export class NoteApp extends React.Component {
             <section className="note-app">
                 <NoteFilter onSetFilter={this.onSetFilter} />
                 <NoteList onSelectNote={this.onSelectNote} onRemoveNote={this.onRemoveNote} notes={notes} />
-                {selectedNote && <NoteDetails note={selectedNote} onGoBack={this.onGoBack} />}
+                {/* {selectedNote && <Route component={NoteDetails} path="/note/:noteId"></Route>} */}
+                
+
             </section>
         )
     }
 }
+

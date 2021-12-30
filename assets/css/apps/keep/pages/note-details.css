@@ -1,1 +1,27 @@
-/* dsdasdas */
+.note-details  {
+    position: fixed;
+    background-color: #D0B49F;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    border: .5px solid black;
+    border-radius: .5rem;
+}
+
+/* .note-details .overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    color: grey;
+    width: 100vw;
+    height: 100vh;
+    z-index: 5;
+} */
+
+.note-details h3 {
+    margin-bottom: 1rem;
+}
+
+.note-details button {
+    align-self: center;
+}

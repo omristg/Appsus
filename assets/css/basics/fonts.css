@@ -1,1 +1,15 @@
 /* FONTS will be here! */
+
+@font-face {
+    font-family: fa;
+    src: url("../../fonts/fa/fa-regular-400.ttf");
+}
+
+
+.fa {
+    font-family: fa;
+}
+
+.fa.trash::before{
+    content: "\f2ed";
+}
