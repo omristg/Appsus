@@ -5,7 +5,6 @@ export class NoteTodos extends React.Component {
         isNoteSelected: false,
         note: this.props.note,
         txtInput: ''
-
     }
 
     onToggleNoteSelected = () => {
