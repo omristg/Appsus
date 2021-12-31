@@ -1,6 +1,5 @@
 import { storageService } from '../../../services/storage.service.js'
 import { utilService } from '../../../services/utils.service.js'
-import { apiKeys } from "../../../services/api-keys.js"
 
 export const noteService = {
     query,
@@ -11,8 +10,7 @@ export const noteService = {
 }
 
 const STORAGE_KEY = 'notesDB'
-const YT_API_KEY = apiKeys.GetYTKey()
-
+const API_KEY = 'AIzaSyBhduIz7IWiaUm7jFFSr8_3WGjciMPjjiY'
 
 
 _createNotes()
@@ -76,7 +74,7 @@ function getYTVideosOpts(searchVal) {
     console.log('dsadsa');
     console.log(searchVal);
     return axios
-        .get(`https://www.googleapis.com/youtube/v3/search?part=snippet&videoEmbeddable=true&type=video&key=${YT_API_KEY}&q=${searchVal}`)
+        .get(`https://www.googleapis.com/youtube/v3/search?part=snippet&videoEmbeddable=true&type=video&key=${API_KEY}&q=${searchVal}`)
         .then(res => res.data.items)
         .catch(err => {
             console.log('Cannot get this', err);

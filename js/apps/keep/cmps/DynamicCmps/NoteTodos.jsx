@@ -74,17 +74,16 @@ export class NoteTodos extends React.Component {
                                 <button className="fa times" onClick={() => { this.onRemoveTodo(idx) }}></button>
                             </li>)
                     })}
+                    {isNoteSelected && <form onSubmit={this.onSubmit}>
+                        <input type="text" name="txtInput" value={txtInput} onChange={this.handleChange} />
+                        <button className="fa-solid plus" onSubmit={this.onSubmit}></button>
+                    </form>}
                 </ul>
-                {isNoteSelected && <form onSubmit={this.onSubmit}>
-                    <input type="text" name="txtInput" value={txtInput} onChange={this.handleChange} />
-                    <button className="fa-solid plus" onSubmit={this.onSubmit}></button>
-                </form>}
-                <div className="todos-btns-container">
+                <div className="note-btns-fa-container">
                     <button className="fa trash" onClick={() => onRemoveNote(note)}></button>
                     {/* <button className="fa edit-filled" onClick={this.onToggleNoteSelected}> {!isNoteSelected ? 'Add' : 'Cancel'} </button> */}
                     {!isNoteSelected && <button className="fa edit-filled" onClick={this.onToggleNoteSelected}></button>}
                     {isNoteSelected && <button className="fa-solid close-filled" onClick={this.onToggleNoteSelected}></button>}
-
                 </div>
             </div>
         )

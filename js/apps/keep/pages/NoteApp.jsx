@@ -49,8 +49,8 @@ export class NoteApp extends React.Component {
         if (!notes) return <Loader />
         return (
             <section className="note-app">
-                <NoteAddSelector loadNotes={this.loadNotes} />
-                <NoteFilter onSetFilter={this.onSetFilter} />
+              
+                <NoteFilter loadNotes={this.loadNotes} onSetFilter={this.onSetFilter} />
                 <NoteList onSelectNote={this.onSelectNote} loadNotes={this.loadNotes} onRemoveNote={this.onRemoveNote} notes={notes} />
             </section>
         )

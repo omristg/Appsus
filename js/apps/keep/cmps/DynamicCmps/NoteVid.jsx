@@ -19,7 +19,9 @@ export function NoteVid(props) {
                 >
                 </iframe>
             </div>
-            <button className="fa trash" onClick={() => { onRemoveNote(note) }}></button>
+            <div className="note-btns-fa-container">
+                <button className="fa trash" onClick={() => { onRemoveNote(note) }}></button>
+            </div>
         </section>
     )
 }

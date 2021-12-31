@@ -7,6 +7,10 @@
     z-index: 10;
 }
 
+.note-add-vid h4 {
+    margin-bottom: 1rem;
+}
+
 .note-add-vid form {
     margin-bottom: 1.5rem;
 }

@@ -1,0 +1,7 @@
+.note-preview .note-txt {
+    margin-top: .5rem;
+}
+
+.note-preview .note-txt textarea {
+    background-color: inherit;
+}

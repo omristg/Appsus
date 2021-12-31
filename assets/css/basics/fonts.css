@@ -56,9 +56,7 @@
     content: "\f03e";
 }
 
-.fa.list::before {
-    content: "\f03a";
-}
+
 
 .fa.times::before {
     content: "\f057";
@@ -85,4 +83,16 @@
 
 .fa-solid.check::before {
     content: "\f00c";
+}
+
+.fa-solid.font::before {
+    content: "\f031";
+}
+
+.fa-solid.chevron-left::before {
+    content: "\f053";
+}
+
+.fa-solid.list::before {
+    content: "\f03a";
 }

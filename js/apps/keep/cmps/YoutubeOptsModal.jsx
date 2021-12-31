@@ -8,19 +8,27 @@ export class YoutubeOptsModal extends React.Component {
 
     componentDidMount() {
         const { searchVal } = this.props
-        noteService.getYTVideosOpts(searchVal)
-            .then((recievedData) => {
-                this.setState({ searchResults: recievedData })
-            })
+        this.getYTVideosOpts(searchVal)
     }
 
     componentDidUpdate(prevProps, prevState) {
-        console.log(this.state.searchResults);
+        // console.log(prevProps.searchVal);
+        // console.log(this.props.searchVal);
+        if (prevProps.searchVal !== this.props.searchVal) {
+            this.getYTVideosOpts()
+        }
     }
 
     onSelectVid = (videoId) => {
         this.props.createNoteToSave(videoId)
         // this.props.onToggleYTVideosModal(false)
+    }
+
+    getYTVideosOpts(searchVal) {
+        noteService.getYTVideosOpts(searchVal)
+        .then((recievedData) => {
+            this.setState({ searchResults: recievedData })
+        })
     }
 
     render() {

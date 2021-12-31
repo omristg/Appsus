@@ -1,3 +1,5 @@
+import { NoteAddSelector } from '../cmps/DynamicCmps/NoteAddSelector.jsx';
+
 export class NoteFilter extends React.Component {
     state = {
         filterBy: {
@@ -5,6 +7,11 @@ export class NoteFilter extends React.Component {
         }
     }
 
+    componentDidMount() {
+        console.log(this.props);
+    }
+    
+    
     handleChange = ({ target }) => {
         const field = target.name
         const value = target.value
@@ -20,12 +27,13 @@ export class NoteFilter extends React.Component {
     render() {
 
         const { type } = this.state.filterBy
+        const { loadNotes } = this.props
 
         return (
             <section className="note-filter">
-                <h4>Filter Notes</h4>
+                {/* <h4>Filter Notes</h4> */}
                 <form onSubmit={this.onSubmitFilter}>
-                    <label htmlFor="by-type">By Type: </label>
+                    <label htmlFor="by-type"> Filter By Type: </label>
                     <select name="type" id="by-type" value={type} onChange={this.handleChange}>
                         <option value="note-txt">Text</option>
                         <option value="note-todos">Todos</option>
@@ -33,6 +41,7 @@ export class NoteFilter extends React.Component {
                         <option value="">All</option>
                     </select>
                 </form>
+                <NoteAddSelector loadNotes={loadNotes} />
             </section>
         )
     }

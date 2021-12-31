@@ -6,6 +6,12 @@ export class NoteAddTodos extends React.Component {
         todosInput: ''
     }
 
+    inputRef = React.createRef()
+
+    componentDidMount() {
+        this.inputRef.current.focus()
+    }
+
 
     handleChange = ({ target }) => {
         const field = target.name
@@ -48,10 +54,10 @@ export class NoteAddTodos extends React.Component {
             <section className="note-add-todos item-center">
                 <h4>What do you need to do?</h4>
                 <form onSubmit={this.onSubmit}>
-                    <input type="text" name="titleInput" value={titleInput}
+                    <input ref={this.inputRef} type="text" placeholder="Title" name="titleInput" value={titleInput}
                         onChange={this.handleChange}
                     />
-                    <input type="text" name="todosInput" value={todosInput}
+                    <input type="text" placeholder="Todos seperated by a comma" name="todosInput"  value={todosInput}
                         onChange={this.handleChange}
                     />
                 </form>

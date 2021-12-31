@@ -7,15 +7,15 @@
 }
 
 .note-preview h4 {
-    margin-bottom: 1rem;
+    margin-bottom: .4rem;
 }
 
 .note-todos li {
     width: 100%;
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
-
 
 .note-todos li span {
     display: block;
@@ -33,9 +33,46 @@
     padding: 0.3rem;
     background-color: unset;
     color: inherit;
+    opacity: 0;
+    transition: opacity .3s;
 }
 
 .note-todos li button:hover {
-    /* background-color: #2F435A; */
     background-color: unset;
+    color: inherit;
+    opacity: 1;
+
 }
+
+.note-todos form {
+    width: 100%;
+    display: flex;
+}
+
+.note-todos input {
+    width: 0;
+    flex-basis: 80%;
+    display: block;
+    background-color: inherit;
+    border: none;
+    border-bottom: .5px solid black;
+    margin-bottom: .5rem;
+}
+
+.note-todos input:focus-visible {
+    outline: none;
+}
+
+.note-todos form button {
+    display: block;
+    padding: .5rem;
+    margin: 0;
+    background-color: #acacac00;
+    color: inherit;
+    flex-basis: 10%;
+}
+
+.note-todos form button:hover {
+    background-color: #acacac4f;
+}
+

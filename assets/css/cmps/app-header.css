@@ -1,7 +1,5 @@
-/* Change Later to main-layout */
 
 .app-header {
-    /* width: 90vw; */
     display: flex;
     justify-content: space-between;
     align-items: center;

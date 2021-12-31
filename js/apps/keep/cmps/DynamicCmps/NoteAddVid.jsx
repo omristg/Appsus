@@ -7,13 +7,17 @@ export class NoteAddVid extends React.Component {
         isYBOptsModalOpen: false
     }
 
+    inputRef = React.createRef()
+
+    componentDidMount() {
+        this.inputRef.current.focus()
+    }
+    
+
     onToggleYTVideosModal = (val) => {
         this.setState({ isYBOptsModalOpen: val })
     }
 
-    componentDidUpdate(prevProps, prevState) {
-        console.log(this.state.isYBOptsModalOpen);
-    }
 
     handleChange = ({ target }) => {
         const field = target.name
@@ -56,7 +60,7 @@ export class NoteAddVid extends React.Component {
             <section className="note-add-vid item-center">
                 <h4>Search Youtube videos</h4>
                 <form onSubmit={this.onSubmit}>
-                    <input type="text" name="searchVal" value={searchVal} onChange={this.handleChange} />
+                    <input type="text" ref={this.inputRef} placeholder="search" name="searchVal" value={searchVal} onChange={this.handleChange} />
                 </form>
                 <div className="btns-container">
                     <button onClick={this.onSubmit}>Enter</button>
