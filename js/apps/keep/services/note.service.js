@@ -5,16 +5,19 @@ export const noteService = {
     query,
     removeNote,
     getNoteById,
-    saveNote
+    saveNote,
+    getYTVideosOpts,
 }
 
 const STORAGE_KEY = 'notesDB'
+const API_KEY = 'AIzaSyBhduIz7IWiaUm7jFFSr8_3WGjciMPjjiY'
 
 _createNotes()
 
 function _createNotes() {
     let notes = _loadFromStorage()
     if (!notes || !notes.length) {
+        console.log('from func');
         notes = [
             {
                 id: utilService.makeId(),
@@ -50,36 +53,37 @@ function _createNotes() {
                 id: utilService.makeId(),
                 type: 'note-txt',
                 isPinned: false,
-                info: { txt: 'Harry Potter is a series of seven fantasy novels written by British author J. K. Rowling. The novels chronicle the lives of a young wizard, Harry Potter, and his friends Hermione Granger and Ron Weasley, all of whom are students at Hogwarts School of Witchcraft and Wizardry. ' }
+                info: { txt: 'Harry Potter is a series of seven fantasy novels written by British author J. K. Rowling.' }
             },
-
+            {
+                id: utilService.makeId(),
+                type: 'note-vid',
+                isPinned: false,
+                info: { videoId: 'VP3xjJFfLS8' }
+            },
         ]
     }
     _saveToStorage(notes)
 }
 
 
+
+
+function getYTVideosOpts(searchVal) {
+    console.log('dsadsa');
+    console.log(searchVal);
+    return axios
+        .get(`https://www.googleapis.com/youtube/v3/search?part=snippet&videoEmbeddable=true&type=video&key=AIzaSyBhduIz7IWiaUm7jFFSr8_3WGjciMPjjiY&q=${searchVal}`)
+        .then(res => res.data.items)
+        .catch(err => {
+            console.log('Cannot get this', err);
+            throw err
+        })
+}
+
+
 function saveNote(noteToSave) {
     return noteToSave.id ? _updateNote(noteToSave) : _addNote(noteToSave);
-}
-
-
-function _addNote(noteToSave) {
-    const newNote = { ...noteToSave, id: utilService.makeId() }
-    const notes = _loadFromStorage()
-    notes.unshift(newNote)
-    _saveToStorage(notes)
-    return Promise.resolve()
-
-}
-
-
-function _updateNote(noteToSave) {
-    const notes = _loadFromStorage()
-    const noteIdx = notes.findIndex(note => note.id === noteToSave.id)
-    notes[noteIdx] = noteToSave
-    _saveToStorage(notes)
-    return Promise.resolve()
 }
 
 function getNoteById(noteId) {
@@ -93,7 +97,6 @@ function removeNote(noteId) {
     notes = notes.filter(note => note.id !== noteId)
     _saveToStorage(notes)
     return Promise.resolve(notes)
-
 }
 
 function query(filterBy = null) {
@@ -107,10 +110,27 @@ function _getFilteredNote(notes, filterBy) {
     return notes.filter(note => note.type === filterBy)
 }
 
+function _addNote(noteToSave) {
+    const newNote = { ...noteToSave, id: utilService.makeId() }
+    const notes = _loadFromStorage()
+    notes.unshift(newNote)
+    _saveToStorage(notes)
+    return Promise.resolve()
+}
+
+function _updateNote(noteToSave) {
+    const notes = _loadFromStorage()
+    const noteIdx = notes.findIndex(note => note.id === noteToSave.id)
+    notes[noteIdx] = noteToSave
+    _saveToStorage(notes)
+    return Promise.resolve()
+}
+
+// Storage Helpers
+
 function _loadFromStorage() {
     return storageService.loadFromStorage(STORAGE_KEY)
 }
-
 
 function _saveToStorage(notes) {
     storageService.saveToStorage(STORAGE_KEY, notes)

@@ -38,7 +38,7 @@ export class NoteTxt extends React.Component {
                 <div>{note.info.txt}</div>
                 <div className="note-btns-container">
                     <button className="fa trash" onClick={() => onRemoveNote(note)}></button>
-                    <button onClick={this.onToggleNoteSelected} >edit</button>
+                    <button  className="fa edit-filled" onClick={this.onToggleNoteSelected} ></button>
                 </div>
             </section>
         )
@@ -53,8 +53,8 @@ export class NoteTxt extends React.Component {
                 </form>
                 <div className="note-btns-container">
                     <button className="fa trash" onClick={() => onRemoveNote(note)}></button>
-                    <button onClick={this.onToggleNoteSelected} >edit</button>
-                    {isNoteSelected && <button onClick={this.onSubmitEdit}>enter</button>}
+                    <button className="fa edit-filled" onClick={this.onToggleNoteSelected} ></button>
+                    {isNoteSelected && <button className="fa-solid check" onClick={this.onSubmitEdit}></button>}
                 </div>
 
             </section>

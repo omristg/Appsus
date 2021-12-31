@@ -17,14 +17,6 @@
     width: 100%;
 }
 
-.note-preview ul li {
-    text-align: start;
-    transition: transform 0.2s;
-}
-
-.note-preview ul li:hover {
-    transform: scale(1.02);
-}
 
 .note-preview button {
     color: white;

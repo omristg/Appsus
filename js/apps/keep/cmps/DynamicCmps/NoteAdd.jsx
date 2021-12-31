@@ -1,6 +1,8 @@
 
 import { NoteAddTxt } from "./NoteAddTxt.jsx"
 import { NoteAddTodos } from "./NoteAddTodos.jsx"
+import { NoteAddVid } from "./NoteAddVid.jsx"
+
 
 export function NoteAdd(props) {
 
@@ -13,6 +15,8 @@ export function NoteAdd(props) {
             return <NoteAddTodos {...props} />
         // case 'note-img':
         //     return <NoteImg  {...props} />
+        case 'note-vid':
+            return <NoteAddVid {...props} />
     }
 }
 

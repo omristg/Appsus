@@ -5,18 +5,12 @@ export class NoteAddTxt extends React.Component {
         txt: ''
     }
 
-    componentDidMount() {
-        // console.log(this.props);
-    }
-
 
     handleChange = ({ target }) => {
         const field = target.name
         const value = target.value
         this.setState((prevState) => ({ ...prevState, [field]: value }))
-        console.log(this.state.txt);
     }
-
 
     onSubmit = (ev) => {
         ev.preventDefault();

@@ -1,0 +1,18 @@
+.note-add-vid {
+    position: fixed;
+    background-color: #2F435A;
+    padding: 1.5rem;
+    border-radius: .5rem;
+    border: 1px solid black;
+    z-index: 10;
+}
+
+.note-add-vid form {
+    margin-bottom: 1.5rem;
+}
+
+.note-add-vid .btns-container {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}

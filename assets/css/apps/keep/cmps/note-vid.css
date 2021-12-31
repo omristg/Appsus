@@ -1,0 +1,13 @@
+.note-preview .note-vid {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%;
+    padding-right: 100%;
+}
+
+.note-vid iframe {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}

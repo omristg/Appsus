@@ -8,22 +8,12 @@ export class NoteTodos extends React.Component {
 
     }
 
-    componentDidMount() {
-        // console.log(this.state.note);
-    }
-
-    componentDidUpdate(prevProps, prevState) {
-        // console.log(this.state.isNoteSelected);
-    }
-
-
     onToggleNoteSelected = () => {
         const { isNoteSelected } = this.state
         if (isNoteSelected) this.clearForm()
         this.setState({ isNoteSelected: !isNoteSelected })
 
     }
-
 
     onSetTodoDone = (idx) => {
         let { note } = this.state
@@ -82,18 +72,19 @@ export class NoteTodos extends React.Component {
                         return (
                             <li key={idx} >
                                 <span className={todo.doneAt ? 'todo-done' : ''} onClick={() => { this.onSetTodoDone(idx) }}>{todo.txt}</span>
-                                <button onClick={() => { this.onRemoveTodo(idx) }}>X</button>
+                                <button className="fa times" onClick={() => { this.onRemoveTodo(idx) }}></button>
                             </li>)
                     })}
                 </ul>
                 {isNoteSelected && <form onSubmit={this.onSubmit}>
                     <input type="text" name="txtInput" value={txtInput} onChange={this.handleChange} />
-                    <button onSubmit={this.onSubmit}>Add</button>
+                    <button className="fa-solid plus" onSubmit={this.onSubmit}></button>
                 </form>}
                 <div className="todos-btns-container">
                     <button className="fa trash" onClick={() => onRemoveNote(note)}></button>
-                    <button onClick={this.onToggleNoteSelected}> {!isNoteSelected ? 'Add' : 'Cancel'} </button>
-
+                    {/* <button className="fa edit-filled" onClick={this.onToggleNoteSelected}> {!isNoteSelected ? 'Add' : 'Cancel'} </button> */}
+                    {!isNoteSelected && <button className="fa edit-filled" onClick={this.onToggleNoteSelected}></button>}
+                    {isNoteSelected && <button className="fa-solid close-filled" onClick={this.onToggleNoteSelected}></button>}
 
                 </div>
             </div>

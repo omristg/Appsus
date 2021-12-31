@@ -28,10 +28,11 @@ export class NoteAddSelector extends React.Component {
 
         return (
             <section className="note-add-selector">
-                <button onClick={this.onToggleNotesOpts}>Add Notes</button>
+                <button  onClick={this.onToggleNotesOpts}>Add Notes</button>
                 {isNotesOptsOpen && <div>
                     <button onClick={() => { this.onSelectType('note-txt') }}>Text</button>
                     <button onClick={() => { this.onSelectType('note-todos') }}>Todos</button>
+                    <button onClick={() => { this.onSelectType('note-vid') }}>Youtube Video</button>
                     {/* <button onClick={() => { this.onSelectType('note-img') }}>Image</button> */}
                 </div>}
                 {isTypeSelected && <NoteAdd selectedType={selectedType} loadNotes={loadNotes}
