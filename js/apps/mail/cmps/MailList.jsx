@@ -1,6 +1,9 @@
+// import {  } from "../../../services/storage.service.js"
+// import { MailApp } from "../pages/MailApp.jsx"
+import { mailService } from "../services/mail.service.js"
 import { MailPreview } from "./MailPreview.jsx"
 
-const { Link } = ReactRouterDOM
+const { Route } = ReactRouterDOM
 
 export function MailList({ mails, selectedMail, getSelectedMailMsg }) {
 
@@ -23,11 +26,11 @@ export function MailList({ mails, selectedMail, getSelectedMailMsg }) {
         return (
             <div className="mail-reading">
                 <section className="mail-reading-header-nav">
-                    <button className="back-to-inbox">🡰Back to inbox</button>
-                    <button className="delete-mail">🗑️Delete</button>
-                    <button className="unread-mark">Mark as unread</button>
-                    <button className="imprtant-mark">Mark as important</button>
-                    <button className="add-star">Add star</button>
+                    <button className="back-to-inbox" onClick={onSetGoBack}>🡰Back to inbox</button>
+                    <button className="delete-mail" onClick={onSetDelete}>🗑️Delete</button>
+                    <button className="unread-mark" onClick={onSetMarkUnread}>Mark as unread</button>
+                    <button className="imprtant-mark" onClick={onSetMarkImportant}>Mark as important</button>
+                    <button className="add-star" onClick={onSetStarred}>Add star</button>
                 </section>
 
 
@@ -47,5 +50,46 @@ export function MailList({ mails, selectedMail, getSelectedMailMsg }) {
                 </section>
             </div>
         )
+    }
+
+    function onSetGoBack() {
+        console.log(props);
+        // <Route component={MailApp} path="/mail"></Route>
+        // window
+        // console.log(window.history);
+        // const mail = selectedMail;
+        // console.log(mail);
+
+    }
+
+    function onSetDelete() {
+        const mail = selectedMail;
+        mailService.removeMail(mail.id);
+
+    }
+
+    function onSetMarkUnread() {
+        const mail = selectedMail;
+        mailService.saveMail(mail);
+
+    }
+
+    function onSetMarkImportant() {
+        const mail = selectedMail;
+        (!mail.isImportant) ? mail.isImportant = true : mail.isImportant = false;
+        mailService.saveMail(mail);
+        console.log('isStarred: ', mail.isStarred);
+
+        // (!mail.isStarred) ? mail.isStarred = true : mail.isStarred = false
+        // console.log(mail);
+        // mailService.saveMail(mail)
+    }
+
+    function onSetStarred() {
+        const mail = selectedMail;
+        (!mail.isStarred) ? mail.isStarred = true : mail.isStarred = false;
+        mailService.saveMail(mail);
+        console.log('isStarred: ', mail.isStarred);
+
     }
 }

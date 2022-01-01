@@ -2,41 +2,53 @@
 
 const { NavLink, Link, Route } = ReactRouterDOM
 
-
 export function MailNav(props) {
     function Inbox() {
         if (props.filterBy === 'isInbox') return <div></div>
         if(window.location.hash!== '#/mail' && window.location.hash!== '#/mail/inbox' ) return <div></div>
+        props.toggleSelectedMail()
         props.onSetFilter('isInbox')
-        return <div></div>
+        return <React.Fragment></React.Fragment>
+        // <div></div>
     }
     
     function Starred() {
         if (props.filterBy === 'isStarred') return <div></div>
         props.onSetFilter('isStarred')
-        return <div></div>
+        props.toggleSelectedMail()
+        return <React.Fragment></React.Fragment>
+        // <div></div>
     }
     function Important() {
         if (props.filterBy === 'isImportant') return <div></div>
         props.onSetFilter('isImportant')
-        return <div></div>
+        props.toggleSelectedMail()
+        return <React.Fragment></React.Fragment>
+        // <div></div>
     }
     function Sent() {
         if (props.filterBy === 'isSent') return <div></div>
         props.onSetFilter('isSent')
-        return <div></div>
+        props.toggleSelectedMail()
+        return <React.Fragment></React.Fragment>
+        // <div></div>
     }
     function Drafts() {
         if (props.filterBy === 'isDraft') return <div></div>
         props.onSetFilter('isDraft')
-        return <div></div>
+        props.toggleSelectedMail()
+        return <React.Fragment></React.Fragment>
+        // <div></div>
     }
     function Trash() {
         if (props.filterBy === 'isTrash') return <div></div>
         props.onSetFilter('isTrash')
-        return <div></div>
+        props.toggleSelectedMail()
+        return <React.Fragment></React.Fragment>
+        // <div></div>
     }
-
+    
+    
     return (
         <section className="mail-nav">
             <NavLink activeClassName="mail-inbox" to="/mail/inbox">Inbox</NavLink>

@@ -3,8 +3,8 @@ import { mailService } from '../services/mail.service.js';
 import { MailList } from '../cmps/MailList.jsx';
 import { MailSearch } from '../cmps/MailSearch.jsx';
 import { MailNav } from '../cmps/MailNav.jsx';
+import { MailCompose } from '../cmps/MailCompose.jsx';
 
-// export 
 const { NavLink, Link, Route } = ReactRouterDOM
 
 export class MailApp extends React.Component {
@@ -24,17 +24,19 @@ export class MailApp extends React.Component {
         const { filterBy } = this.state
         mailService.query(filterBy)
             .then(mails => {
-                this.setState( this.state.mails = mails)
+                this.setState(this.state.mails = mails)
             })
     }
 
     onSetFilter = (filterBy) => {
         console.log(filterBy);
-        this.setState( {filterBy}, this.loadMails)
+        this.setState({ filterBy }, this.loadMails)
+        this.componentDidMount()
     }
 
-    openCompose = () => {
+    onSetCompose = () => {
         console.log('New Message');
+        <MailCompose />
     }
 
     mailSearchFor = (val) => { console.log('searching', val) }
@@ -59,6 +61,8 @@ export class MailApp extends React.Component {
         this.setState({ selectedMail: placeSelectedMail })
     }
 
+    toggleSelectedMail= ()=>{this.state.selectedMail=null}
+
     render() {
         const { mails } = this.state;
         if (!mails) return <h2>There is no mail to show</h2>
@@ -67,17 +71,17 @@ export class MailApp extends React.Component {
         return (
             <main className="main-mail-app">
                 <div className="mail-header">
-                    <NavLink to="/mail/inbox"><h1>Email LOGO</h1></NavLink>
+                    <NavLink to="/mail"><h1>Email LOGO</h1></NavLink>
                     <MailSearch mails={mails} mailSearchFor={this.mailSearchFor} />
                 </div>
                 <section className="mail-preview">
                     <div className="mail-nav-container">
-                        <Link className="mail-compose" to="/mail/Compose">
-                            <button onClick={this.openCompose} >➕Compose</button>
+                        <Link className="mail-compose" to="/mail/compose">
+                            <button>➕Compose</button>
                         </Link>
-                        <MailNav mails={mails} onSetFilter={this.onSetFilter} filterBy = {this.state.filterBy} />
+                        <MailNav mails={mails} onSetFilter={this.onSetFilter} filterBy={this.state.filterBy} toggleSelectedMail={this.toggleSelectedMail} />
                     </div>
-                    {/* <Route component={Inbox} path='/mail'></Route> */}
+                        <Route component={MailCompose} path='/mail/compose' />
                     <MailList mails={mails} selectedMail={selectedMail} getSelectedMailMsg={this.getSelectedMailMsg} />
                 </section>
 
