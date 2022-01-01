@@ -14,13 +14,14 @@ export class MailCompose extends React.Component {
 
     componentDidMount() {
         this.inputRef.current.focus()
+        console.log(this.props);
     }
 
     handleChange = ({ target }) => {
         const field = target.name
         const value = target.value
         this.setState((prevState) => ({ ...prevState, [field]: value }))
-        value = field+value
+        value = field + value
         console.log(this.state);
     }
 
@@ -34,9 +35,9 @@ export class MailCompose extends React.Component {
             .then(this.clearForm())
     }
 
-    onSaveToDrafts = (ev)=>{
+    onSaveToDrafts = (ev) => {
         ev.preventDefault();
-        
+
     }
 
     clearForm = () => {
@@ -54,8 +55,8 @@ export class MailCompose extends React.Component {
     }
 
     render() {
-        const {sentTo} = this.state.sentTo;
-        const {subject} = this.state.subject;
+        const { sentTo } = this.state.sentTo;
+        const { subject } = this.state.subject;
         const { txt } = this.state.txt;
         const { onToggleIsTypeSelected } = this.props;
 

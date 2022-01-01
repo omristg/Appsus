@@ -4,6 +4,8 @@ const { NavLink, Route } = ReactRouterDOM
 
 export function MailPreview({ mail, getSelectedMailMsg }) {
 
+   
+    
     function setSelectedMail() {
         getSelectedMailMsg(mail.id)
         return <React.Fragment></React.Fragment>

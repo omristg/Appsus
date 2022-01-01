@@ -61,7 +61,7 @@ export class MailApp extends React.Component {
         this.setState({ selectedMail: placeSelectedMail })
     }
 
-    toggleSelectedMail= ()=>{this.state.selectedMail=null}
+    toggleSelectedMail = () => { this.state.selectedMail = null }
 
     render() {
         const { mails } = this.state;
@@ -76,12 +76,12 @@ export class MailApp extends React.Component {
                 </div>
                 <section className="mail-preview">
                     <div className="mail-nav-container">
-                        <Link className="mail-compose" to="/mail/compose">
+                        <Link to="/mail/compose">
                             <button>➕Compose</button>
                         </Link>
                         <MailNav mails={mails} onSetFilter={this.onSetFilter} filterBy={this.state.filterBy} toggleSelectedMail={this.toggleSelectedMail} />
                     </div>
-                        <Route component={MailCompose} path='/mail/compose' />
+                    <Route component={MailCompose} path='/mail/compose' />
                     <MailList mails={mails} selectedMail={selectedMail} getSelectedMailMsg={this.getSelectedMailMsg} />
                 </section>
 
@@ -90,3 +90,4 @@ export class MailApp extends React.Component {
     }
 }
 
+//  className="mail-compose" 

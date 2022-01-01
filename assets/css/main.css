@@ -73,3 +73,4 @@
 
 @import "./apps/email/pages/mail-app.css";
 @import "./apps/email/pages/mail-details.css";
+@import "./apps/email/cmps/mail-compose.css";
