@@ -1,4 +1,4 @@
-.note-add-txt {
+.note-add-img {
     position: fixed;
     background-color: #2F435A;
     padding: 1.5rem;
@@ -6,17 +6,20 @@
     border-radius: .5rem;
 }
 
-.note-add-txt h4 {
+.note-add-img h4 {
     margin-bottom: 1rem;
 }
 
-.note-add-txt form {
-    margin-bottom: 1rem;
-}
-
-.note-add-txt .btns-container {
+.note-add-img form {
     display: flex;
     flex-direction: column;
+    gap: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.note-add-img .btns-container {
+    display: flex;
+    justify-content: center;
     align-items: center;
     gap: .5rem
 }

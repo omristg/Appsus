@@ -1,0 +1,31 @@
+.youtube-opts-modal {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+}
+
+
+.youtube-opts-modal .video-search-opt {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex-basis: 20px;
+    cursor: pointer;
+}
+
+.youtube-opts-modal span {
+    display: block;
+    max-width: 80%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.youtube-opts-modal .img-container {
+    max-width: 20%;
+}
+
+.youtube-opts-modal img {
+    width: 100%;
+}

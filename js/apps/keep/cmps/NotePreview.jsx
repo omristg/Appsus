@@ -1,11 +1,11 @@
 import { NoteTxt } from './DynamicCmps/NoteTxt.jsx'
 import { NoteTodos } from './DynamicCmps/NoteTodos.jsx'
 import { NoteImg } from './DynamicCmps/NoteImg.jsx'
+import { NoteVid } from './DynamicCmps/NoteVid.jsx'
 
 export function NotePreview(props) {
-    
+
     const { note } = props
-    // console.log(props);
 
     switch (note.type) {
         case 'note-txt':
@@ -14,6 +14,8 @@ export function NotePreview(props) {
             return <NoteTodos {...props} />
         case 'note-img':
             return <NoteImg  {...props} />
+        case 'note-vid':
+            return <NoteVid  {...props} />
 
     }
 }

@@ -9,12 +9,9 @@ export class NoteAddSelector extends React.Component {
 
     onToggleNotesOpts = () => {
         this.setState({ isNotesOptsOpen: !this.state.isNotesOptsOpen })
-
     }
 
-
     onSelectType = (type) => {
-        console.log(type);
         this.setState({ selectedType: type })
         this.onToggleNotesOpts()
         this.onToggleIsTypeSelected()
@@ -25,18 +22,18 @@ export class NoteAddSelector extends React.Component {
     }
 
 
-
     render() {
         const { isNotesOptsOpen, isTypeSelected, selectedType } = this.state
         const { loadNotes } = this.props
 
         return (
             <section className="note-add-selector">
-                <button onClick={this.onToggleNotesOpts}>Add Notes</button>
-                {isNotesOptsOpen && <div>
-                    <button onClick={() => { this.onSelectType('note-txt') }}>Text</button>
-                    <button onClick={() => { this.onSelectType('note-todos') }}>Todos</button>
-                    <button onClick={() => { this.onSelectType('note-img') }}>Image</button>
+                <button className="fa-solid plus" className={!isNotesOptsOpen ? 'fa-solid plus' : 'fa-solid chevron-left'} onClick={this.onToggleNotesOpts}></button>
+                {isNotesOptsOpen && <div className="note-add-opts">
+                    <button className="fa-solid font" onClick={() => { this.onSelectType('note-txt') }}></button>
+                    <button className="fa-solid list" onClick={() => { this.onSelectType('note-todos') }}></button>
+                    <button className="fa-brands youtube" onClick={() => { this.onSelectType('note-vid') }}></button>
+                    <button  className="fa img" onClick={() => { this.onSelectType('note-img') }}></button>
                 </div>}
                 {isTypeSelected && <NoteAdd selectedType={selectedType} loadNotes={loadNotes}
                     onToggleIsTypeSelected={this.onToggleIsTypeSelected} />}

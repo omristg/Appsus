@@ -1,10 +1,13 @@
 .note-filter {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     margin-bottom: .6rem;
 }
 
-.note-filter>* {
+/* .note-filter>* {
     padding: 0.3rem;
-}
+} */
 
 .note-filter select {
     border-radius: .3rem;

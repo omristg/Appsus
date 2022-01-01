@@ -33,6 +33,7 @@
 @import "./apps/books/cmps/review-list.css";
 @import "./apps/books/cmps/review-preview.css";
 
+
 /* BOOKS Pages */
 
 @import "./apps/books/pages/book-app.css";
@@ -47,10 +48,15 @@
 @import "./apps/keep/cmps/note-preview.css";
 @import "./apps/keep/cmps/note-list.css";
 @import "./apps/keep/cmps/note-filter.css";
-@import "./apps/keep/cmps/note-add-txt.css";
 @import "./apps/keep/cmps/note-todos.css";
-@import "./apps/keep/cmps/note-todo-single.css";
-
+@import "./apps/keep/cmps/note-txt.css";
+@import "./apps/keep/cmps/note-vid.css";
+@import "./apps/keep/cmps/note-img.css";
+@import "./apps/keep/cmps/note-add-txt.css";
+@import "./apps/keep/cmps/note-add-selector.css";
+@import "./apps/keep/cmps/note-add-todos.css";
+@import "./apps/keep/cmps/note-add-vid.css";
+@import "./apps/keep/cmps/youtube-opts-modal.css";
 /* Keep Pages */
 
 @import "./apps/keep/pages/note-app.css";

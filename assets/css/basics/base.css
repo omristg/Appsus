@@ -35,3 +35,11 @@ a {
     text-decoration: none;
     color: inherit;
 }
+
+
+.check {
+    background-color: red;
+    position: fixed;
+    z-index: 10;
+    width: 300px;
+}

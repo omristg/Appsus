@@ -5,11 +5,94 @@
     src: url("../../fonts/fa/fa-regular-400.ttf");
 }
 
+@font-face {
+    font-family: fa-brands;
+    src: url("../../fonts/fa/fa-brands-400.ttf");
+}
+
+@font-face {
+    font-family: fa-solid;
+    src: url("../../fonts/fa/fa-solid-900.ttf");
+}
 
 .fa {
     font-family: fa;
 }
 
-.fa.trash::before{
+.fa-solid {
+    font-family: fa-solid;
+}
+
+.fa-brands {
+    font-family: fa-brands;
+}
+
+.fa.trash::before {
     content: "\f2ed";
+}
+
+
+.fa.edit-hollow::before {
+    content: "\f044";
+}
+
+.fa.edit-filled::before {
+    content: "\f044";
+}
+
+.fa.search::before {
+    content: "\f002";
+}
+
+.fa.color::before {
+    content: "\f53f";
+}
+
+.fa.pin::before {
+    content: "\f08d";
+}
+
+.fa.img::before {
+    content: "\f03e";
+}
+
+
+
+.fa.times::before {
+    content: "\f057";
+}
+
+
+/*  Brands */
+
+.fa-brands.youtube::before {
+    content: "\f167";
+}
+
+
+/* Solid Style */
+
+
+.fa-solid.close-filled::before {
+    content: "\f410";
+}
+
+.fa-solid.plus::before {
+    content: "\f067";
+}
+
+.fa-solid.check::before {
+    content: "\f00c";
+}
+
+.fa-solid.font::before {
+    content: "\f031";
+}
+
+.fa-solid.chevron-left::before {
+    content: "\f053";
+}
+
+.fa-solid.list::before {
+    content: "\f03a";
 }

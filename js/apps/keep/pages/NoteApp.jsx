@@ -2,11 +2,10 @@ import { noteService } from '../services/note.service.js';
 import { Loader } from '../../../cmps/Loader.jsx';
 
 import { NoteAddSelector } from '../cmps/DynamicCmps/NoteAddSelector.jsx';
-
 import { NoteFilter } from '../cmps/NoteFilter.jsx';
 import { NoteList } from '../cmps/NoteList.jsx';
 
-// const { Route } = ReactRouterDOM
+
 
 export class NoteApp extends React.Component {
     state = {
@@ -49,10 +48,9 @@ export class NoteApp extends React.Component {
         if (!notes) return <Loader />
         return (
             <section className="note-app">
-                <NoteAddSelector loadNotes={this.loadNotes} />
+                 <NoteAddSelector loadNotes={this.loadNotes} />
                 <NoteFilter onSetFilter={this.onSetFilter} />
                 <NoteList onSelectNote={this.onSelectNote} loadNotes={this.loadNotes} onRemoveNote={this.onRemoveNote} notes={notes} />
-
             </section>
         )
     }

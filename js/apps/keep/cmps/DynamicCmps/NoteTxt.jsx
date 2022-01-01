@@ -13,7 +13,6 @@ export class NoteTxt extends React.Component {
     }
 
     handleChange = ({ target }) => {
-        console.log(this.props.note);
         const field = target.name
         const value = target.value
         this.setState((prevState) => ({ ...prevState, [field]: value }))
@@ -35,10 +34,12 @@ export class NoteTxt extends React.Component {
 
         if (!isNoteSelected) return (
             <section className="note-preview">
-                <div>{note.info.txt}</div>
-                <div className="note-btns-container">
+                <div className="note-txt">
+                    <div>{note.info.txt}</div>
+                </div>
+                <div className="note-btns-fa-container">
                     <button className="fa trash" onClick={() => onRemoveNote(note)}></button>
-                    <button onClick={this.onToggleNoteSelected} >edit</button>
+                    <button className="fa edit-filled" onClick={this.onToggleNoteSelected} ></button>
                 </div>
             </section>
         )
@@ -46,17 +47,18 @@ export class NoteTxt extends React.Component {
 
         else return (
             <section className="note-preview" >
-                <form className="note-txt-form">
-                    <textarea name="txt" cols="20" rows="10"
-                     value={txt} onChange={this.handleChange}
-                    ></textarea>
-                </form>
-                <div className="note-btns-container">
-                    <button className="fa trash" onClick={() => onRemoveNote(note)}></button>
-                    <button onClick={this.onToggleNoteSelected} >edit</button>
-                    {isNoteSelected && <button onClick={this.onSubmitEdit}>enter</button>}
+                <div className="note-txt">
+                    <form className="note-txt-form">
+                        <textarea name="txt" cols="20" rows="10"
+                            value={txt} onChange={this.handleChange}
+                        ></textarea>
+                    </form>
                 </div>
-
+                <div className="note-btns-fa-container">
+                    <button className="fa trash" onClick={() => onRemoveNote(note)}></button>
+                    <button className="fa edit-filled" onClick={this.onToggleNoteSelected} ></button>
+                    {isNoteSelected && <button className="fa-solid check" onClick={this.onSubmitEdit}></button>}
+                </div>
             </section>
         )
     }
