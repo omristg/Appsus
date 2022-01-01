@@ -1,5 +1,4 @@
 import { mailService } from '../services/mail.service.js';
-
 import { MailList } from '../cmps/MailList.jsx';
 import { MailSearch } from '../cmps/MailSearch.jsx';
 import { MailNav } from '../cmps/MailNav.jsx';
@@ -29,7 +28,7 @@ export class MailApp extends React.Component {
     }
 
     onSetFilter = (filterBy) => {
-        console.log(filterBy);
+        // console.log(filterBy);
         this.setState({ filterBy }, this.loadMails)
         this.componentDidMount()
     }
@@ -66,7 +65,7 @@ export class MailApp extends React.Component {
     render() {
         const { mails } = this.state;
         if (!mails) return <h2>There is no mail to show</h2>
-        var selectedMail;
+        let selectedMail;
         (this.state.selectedMail) ? selectedMail = this.state.selectedMail : selectedMail = null
         return (
             <main className="main-mail-app">

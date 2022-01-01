@@ -8,15 +8,40 @@ export const mailService = {
     saveMail,
     removeMail,
     createMail,
+    getMailToTrash,
 }
 
 const KEY = 'mailsDB'
+const TRASH_KEY = 'mailsTrashDB'
 
 _createInboxMails()
 
-function createMail(details){
-    const mailDetails = {...details};
-
+function createMail(details) {
+    const time = new Date;
+    const dayOfWeek = [Sun, Mon, Tue, Wen, Thu, Fri, Sat]
+    const monthOfyear = [Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec]
+    const mailDetails = { ...details };
+    const mail = {
+        id: utilService.makeId(),
+        sentFrom: "Muki",
+        sentTo: mailDetails.sentTo,
+        subject: mailDetails.subject,
+        mailContent: mailDetails.txt,
+        isInbox: false,
+        isStarred: false,
+        isImportant: false,
+        isDraft: false,
+        isSent: true,
+        isChecked: false,
+        isRead: false,
+        isTrash: false,
+        sentDate: [{
+            day: `'${dayOfWeek[time.getDay]}'`,
+            month: `${monthOfyear[time.getMonth()]}`,
+            dayNum: time.getUTCDay(),
+        }]
+    }
+    _saveToStorage( mail )
 }
 
 
@@ -133,18 +158,20 @@ function query(filterBy = null) {
 }
 
 function _getFilteredMails(mails, filterBy) {
-    return mails.filter(mail=>{
-        if (mail[filterBy]) return mail 
+    return mails.filter(mail => {
+        if (mail[filterBy]) return mail
     })
-    // minPrice = minPrice ? minPrice : 0;
-    // maxPrice = maxPrice ? maxPrice : Infinity;
-    // return books.filter(book => {
-        // return book.title.includes(name) && book.listPrice.amount >= minPrice && book.listPrice.amount <= maxPrice
-    // })
 }
 
-function removeMail(mailId) {
-    let mails = _loadFromStorage()
+function getMailToTrash(mails) {
+    _saveToStorage(mails, TRASH_KEY)
+    return removeMail(mails.id)
+    // return mails.forEach(mail=>{return removeMail(mail.id)})
+
+}
+
+function removeMail(mailId, KEY = 'mailsDB') {
+    let mails = _loadFromStorage(KEY)
     mails = mails.filter(mail => mail.id !== mailId)
     _saveToStorage(mails)
     return Promise.resolve(mails)
@@ -170,9 +197,9 @@ function _updateMail(mailToSave) {
     return Promise.resolve()
 }
 
-function _saveToStorage(mails) {
+function _saveToStorage(mails, KEY = 'mailsDB') {
     storageService.saveToStorage(KEY, mails)
 }
-function _loadFromStorage() {
+function _loadFromStorage(KEY = 'mailsDB') {
     return storageService.loadFromStorage(KEY)
 }

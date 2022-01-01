@@ -13,35 +13,34 @@ export function MailNav(props) {
     }
     
     function Starred() {
-        if (props.filterBy === 'isStarred') return <div></div>
+        if (props.filterBy === 'isStarred') return <React.Fragment></React.Fragment>
         props.onSetFilter('isStarred')
         props.toggleSelectedMail()
         return <React.Fragment></React.Fragment>
         // <div></div>
     }
     function Important() {
-        if (props.filterBy === 'isImportant') return <div></div>
+        if (props.filterBy === 'isImportant') return <React.Fragment></React.Fragment>
         props.onSetFilter('isImportant')
         props.toggleSelectedMail()
         return <React.Fragment></React.Fragment>
         // <div></div>
     }
     function Sent() {
-        if (props.filterBy === 'isSent') return <div></div>
+        if (props.filterBy === 'isSent') return <React.Fragment></React.Fragment>
         props.onSetFilter('isSent')
         props.toggleSelectedMail()
         return <React.Fragment></React.Fragment>
         // <div></div>
     }
     function Drafts() {
-        if (props.filterBy === 'isDraft') return <div></div>
+        if (props.filterBy === 'isDraft') return <React.Fragment></React.Fragment>
         props.onSetFilter('isDraft')
         props.toggleSelectedMail()
-        return <React.Fragment></React.Fragment>
         // <div></div>
     }
     function Trash() {
-        if (props.filterBy === 'isTrash') return <div></div>
+        if (props.filterBy === 'isTrash') return <React.Fragment></React.Fragment>
         props.onSetFilter('isTrash')
         props.toggleSelectedMail()
         return <React.Fragment></React.Fragment>
@@ -58,11 +57,11 @@ export function MailNav(props) {
             <NavLink activeClassName="mail-drafts" to="/mail/drafts">Drafts</NavLink>
             <NavLink activeClassName="mail-trash" to="/mail/trash">Trash</NavLink>
             <Route component={Starred} path='/mail/starred' />
-            <Route component={Inbox} path='/mail' />
             <Route component={Important} path="/mail/important" />
             <Route component={Sent} path="/mail/sent" />
             <Route component={Drafts} path="/mail/drafts" />
             <Route component={Trash} path="/mail/trash" />
+            <Route component={Inbox} path='/mail' />
         </section>
     )
 }

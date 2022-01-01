@@ -1,20 +1,26 @@
 // import { MailList } from "./MailList.jsx"
 
 const { NavLink, Route } = ReactRouterDOM
-
+const FULL_STAR = '★';
+const EMPTY_STAR = '✩';
 export function MailPreview({ mail, getSelectedMailMsg }) {
 
-   
-    
     function setSelectedMail() {
         getSelectedMailMsg(mail.id)
         return <React.Fragment></React.Fragment>
         // <div></div>
     }
-    
+    var star = (mail.isStarred) ? FULL_STAR : EMPTY_STAR;
+
+    function setStarred(){
+        (!mail.isStarred) ? mail.isStarred =  true : mail.isStarred = false ;
+    }
+
     return (
         <tr>
-            <td>⭐✩★;</td>
+            <td>
+                <button onClick={setStarred}>{`${star}`}</button>
+            </td>
             <td>
                 <NavLink activeclassname="clean-link" to={`/mail/message/:${mail.id}`}>
                     {mail.sentFrom}
