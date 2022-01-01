@@ -1,6 +1,6 @@
 import { mailService } from "../services/mail.service.js"
 
-const { Link } = ReactRouterDOM
+const { Route } = ReactRouterDOM
 
 export class MailCompose extends React.Component {
 
@@ -21,12 +21,11 @@ export class MailCompose extends React.Component {
         const field = target.name
         const value = target.value
         this.setState((prevState) => ({ ...prevState, [field]: value }))
-        value = field + value
-        console.log(this.state);
     }
 
-    onSubmit = (ev) => {
+    onSentMail = (ev) => {
         ev.preventDefault();
+        console.log('bbb');
         const { txt } = this.state
         const mailToSave = this.createMailtoSave(txt)
         console.log(mailToSave);
@@ -36,6 +35,7 @@ export class MailCompose extends React.Component {
     }
 
     onSaveToDrafts = (ev) => {
+        console.log('aaa');
         ev.preventDefault();
 
     }
@@ -65,14 +65,14 @@ export class MailCompose extends React.Component {
                 <h4>Write something</h4>
                 <form onSubmit={this.onSubmit}>
                     <label forhtml="email"></label>
-                    <input ref={this.inputRef} type="email" name="sentTo" placeholder="Sent To" value='' onChange={this.handleChange} />
-                    <input ref={this.inputRef} type="text" name="subject" placeholder="Subject" value='' onChange={this.handleChange} />
+                    <input ref={this.inputRef} type="email" name="sentTo" placeholder="Sent To" value={sentTo} onChange={this.handleChange} />
+                    <input ref={this.inputRef} type="text" name="subject" placeholder="Subject" value={subject} onChange={this.handleChange} />
                     <textarea ref={this.inputRef} placeholder="Main content" name="txt" cols="60" rows="20"
                         value={txt} onChange={this.handleChange}
                     ></textarea>
                 </form>
                 <div className="btns-container">
-                    <button onClick={this.onSubmit}>Sent</button>
+                    <button onClick={this.onSentMail}>Sent</button>
                     <button onClick={this.onSaveToDrafts}>Cancel</button>
                 </div>
             </section>
