@@ -5,7 +5,7 @@ import { MailSearch } from '../cmps/MailSearch.jsx';
 import { MailNav } from '../cmps/MailNav.jsx';
 
 // export 
-const { Link } = ReactRouterDOM
+const { NavLink, Link, Route } = ReactRouterDOM
 
 export class MailApp extends React.Component {
 
@@ -13,7 +13,7 @@ export class MailApp extends React.Component {
         mails: null,
         filterBy: null,
         selectedMail: null,
-        isOpenMail: false
+        isfiltered: false
     }
 
     componentDidMount() {
@@ -24,60 +24,64 @@ export class MailApp extends React.Component {
         const { filterBy } = this.state
         mailService.query(filterBy)
             .then(mails => {
-                this.setState({ mails })
+                this.setState( this.state.mails = mails)
             })
     }
 
     onSetFilter = (filterBy) => {
         console.log(filterBy);
-        // this.setState({ filterBy }, this.loadMails)
+        this.setState( {filterBy}, this.loadMails)
     }
 
     openCompose = () => {
-        <Link className="mail-compose" to="/mail/Compose"></Link>
         console.log('New Message');
     }
 
     mailSearchFor = (val) => { console.log('searching', val) }
 
 
-    getMailToOpen = (mailId) => {
-        var currMailToOpen = this.getMailById(mailId)
-        this.openToRead(currMailToOpen)
+    getSelectedMailMsg = (mailId) => {
+        var currSelectedMail = this.getSelectedMailById(mailId)
+        this.updateSelectedMail(currSelectedMail)
     }
 
-    getMailById = (mailId) => {
+    getSelectedMailById = (mailId) => {
         this.loadMails()
         const mails = this.state.mails
         let currMail;
         mails.forEach(mail => {
             if (mail.id === mailId) currMail = mail;
         });
-        return currMail
+        return currMail;
     }
 
-    openToRead = (openMail) => {
-        this.setState({ mails: openMail, isOpenMail: true })
+    updateSelectedMail = (placeSelectedMail) => {
+        this.setState({ selectedMail: placeSelectedMail })
     }
 
     render() {
-        const { mails } = this.state
+        const { mails } = this.state;
         if (!mails) return <h2>There is no mail to show</h2>
-        console.log(this.state);
+        var selectedMail;
+        (this.state.selectedMail) ? selectedMail = this.state.selectedMail : selectedMail = null
         return (
-            <section className="mail-app-container">
+            <main className="main-mail-app">
                 <div className="mail-header">
-                    <h1>Email LOGO</h1>
+                    <NavLink to="/mail/inbox"><h1>Email LOGO</h1></NavLink>
                     <MailSearch mails={mails} mailSearchFor={this.mailSearchFor} />
                 </div>
-                <main className="main-mail-preview">
+                <section className="mail-preview">
                     <div className="mail-nav-container">
-                        <button onClick={this.openCompose} >➕Compose</button>
-                        <MailNav onSetFilter={this.onSetFilter} />
+                        <Link className="mail-compose" to="/mail/Compose">
+                            <button onClick={this.openCompose} >➕Compose</button>
+                        </Link>
+                        <MailNav mails={mails} onSetFilter={this.onSetFilter} filterBy = {this.state.filterBy} />
                     </div>
-                    <MailList mails={mails} isOpenMail={this.state.isOpenMail} getMailToOpen={this.getMailToOpen} />
-                </main>
-            </section>
+                    {/* <Route component={Inbox} path='/mail'></Route> */}
+                    <MailList mails={mails} selectedMail={selectedMail} getSelectedMailMsg={this.getSelectedMailMsg} />
+                </section>
+
+            </main>
         )
     }
 }

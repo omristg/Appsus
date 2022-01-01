@@ -1,67 +1,56 @@
-import { mailService } from '../services/mail.service.js';
 
 
-// const { Route, Switch } = ReactRouterDOM
-const { NavLink, Route } = ReactRouterDOM
+const { NavLink, Link, Route } = ReactRouterDOM
 
-
-function Inbox() {
-    console.log(this.props);
-    console.log(filter);
-    return filter('Index');
-}
-function Starred(){
-    return 'starred';
-}
-function Important(){
-    console.log('ccc');
-}
-function Sent(){
-    console.log('ddd');
-}
-function Drafts(){
-    console.log('eee');
-}
-function Trash(){
-    console.log('fff');
-}
-
-// function filterPreview(val){
-//     switch (note.type) {
-//         case 'Index':
-//             return console.log('aaa');
-//             // return <NoteTxt {...props} />
-//         case 'Starred':
-//             return console.log('bbb');
-//             // return <NoteTodos {...props} />
-//         case 'Important':
-//             return <NoteImg  {...props} />
-// }
-// }
 
 export function MailNav(props) {
-    // const filter = props.onSetFilter
-    // console.log(props.onSetFilter);
+    function Inbox() {
+        if (props.filterBy === 'isInbox') return <div></div>
+        if(window.location.hash!== '#/mail' && window.location.hash!== '#/mail/inbox' ) return <div></div>
+        props.onSetFilter('isInbox')
+        return <div></div>
+    }
+    
+    function Starred() {
+        if (props.filterBy === 'isStarred') return <div></div>
+        props.onSetFilter('isStarred')
+        return <div></div>
+    }
+    function Important() {
+        if (props.filterBy === 'isImportant') return <div></div>
+        props.onSetFilter('isImportant')
+        return <div></div>
+    }
+    function Sent() {
+        if (props.filterBy === 'isSent') return <div></div>
+        props.onSetFilter('isSent')
+        return <div></div>
+    }
+    function Drafts() {
+        if (props.filterBy === 'isDraft') return <div></div>
+        props.onSetFilter('isDraft')
+        return <div></div>
+    }
+    function Trash() {
+        if (props.filterBy === 'isTrash') return <div></div>
+        props.onSetFilter('isTrash')
+        return <div></div>
+    }
+
     return (
-        < div className="mail-nav" >
+        <section className="mail-nav">
             <NavLink activeClassName="mail-inbox" to="/mail/inbox">Inbox</NavLink>
             <NavLink activeClassName="mail-starred" to="/mail/starred">Starred</NavLink>
             <NavLink activeClassName="mail-important" to="/mail/important">Important</NavLink>
             <NavLink activeClassName="mail-sent" to="/mail/sent">Sent</NavLink>
             <NavLink activeClassName="mail-drafts" to="/mail/drafts">Drafts</NavLink>
             <NavLink activeClassName="mail-trash" to="/mail/trash">Trash</NavLink>
-            <Route Component={Inbox} path="/mail/inbox" />
-            <Route Component={Starred} path="/mail/starred" />
-            <Route Component={Important} path="/mail/important" />
-            <Route Component={Sent} path="/mail/sent" />
-            <Route Component={Drafts} path="/mail/drafts" />
-            <Route Component={Trash} path="/mail/trash" />
-
-
-            {/* <Route Component={filterPreview(Inbox)} path="/mail/inbox" />
-            <Route Component={filterPreview} path="/mail/inbox" />
-            <Route Component={filterPreview(Starred)} path="/mail/starred" />
-            <Route Component={filterPreview(Important)} path="/mail/important" /> */}
-            </div >
+            <Route component={Starred} path='/mail/starred' />
+            <Route component={Inbox} path='/mail' />
+            <Route component={Important} path="/mail/important" />
+            <Route component={Sent} path="/mail/sent" />
+            <Route component={Drafts} path="/mail/drafts" />
+            <Route component={Trash} path="/mail/trash" />
+        </section>
     )
 }

@@ -1,35 +1,30 @@
 import { MailPreview } from "./MailPreview.jsx"
 
-export function MailList({ mails, isOpenMail, getMailToOpen }) {
+const { Link } = ReactRouterDOM
 
+export function MailList({ mails, selectedMail, getSelectedMailMsg }) {
 
     if (!mails.length) return <h2>There are no mails to show</h2>
-    // const {mails} = mails
-    // if(!mails) return
 
-    // onSetDeleteMail = (mailId)=>{console.log('Deleted', mailId)}
-
-    if(!isOpenMail){
+    if (!selectedMail) {
         return (
-            // <h2>aaa</h2>
             <section className="mail-list">
                 <table>
                     <tbody>
                         {mails.map(mail => {
-                            return <MailPreview mail={mail} key={mail.id} getMailToOpen={getMailToOpen}/>
+                            return <MailPreview mail={mail} key={mail.id} getSelectedMailMsg={getSelectedMailMsg} />
                         })}
                     </tbody>
                 </table>
             </section>
         )
     } else {
-        const mail = {...mails}
-        console.log(mail);
+        const mail = selectedMail;
         return (
             <div className="mail-reading">
                 <section className="mail-reading-header-nav">
-                    <button className="back-to-inbox">Back to inbox</button>
-                    <button className="delete-mail">Delete</button>
+                    <button className="back-to-inbox">🡰Back to inbox</button>
+                    <button className="delete-mail">🗑️Delete</button>
                     <button className="unread-mark">Mark as unread</button>
                     <button className="imprtant-mark">Mark as important</button>
                     <button className="add-star">Add star</button>
@@ -37,10 +32,18 @@ export function MailList({ mails, isOpenMail, getMailToOpen }) {
 
 
                 <section className="main-mail-reading">
-                <div className="mail-reading-header">{mail.subject}</div>
-                <div className="mail-user-sent">{mail.sentFrom}</div>
-                <div className="mail-arrieving-date">{mail.arrivedDate}</div>
-                <div className="mail-content">{mail.mailContent}</div>
+                    <div className="mail-reading-header">
+                        <p>{mail.subject}</p>
+                    </div>
+                    <div className="mail-user-sent">
+                        <p>{mail.sentFrom}</p>
+                    </div>
+                    <div className="mail-arrieving-date">
+                        <p>{mail.arrivedDate.day} {mail.arrivedDate.month} {mail.arrivedDate.dayNum}</p>
+                    </div>
+                    <div className="mail-content">
+                        <p>{mail.mailContent}</p>
+                    </div>
                 </section>
             </div>
         )

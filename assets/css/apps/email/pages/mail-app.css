@@ -3,13 +3,14 @@
 .mail-header {
     display: flex;
     justify-content: space-between;
+    margin-bottom: 5px;
 }
 
 .mail-header>h1 {
     cursor: pointer;
 }
 
-.main-mail-preview {
+.mail-preview {
     display: flex;
 }
 
@@ -41,3 +42,8 @@
 
 /* .mail-list>table>tbody> tr {
 } */
+
+/* mail-nav CMPS */
+.mail-nav li{
+    cursor: pointer;
+}
