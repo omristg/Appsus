@@ -1,13 +1,13 @@
-export function BooksSearchOpts({ booksOpts ,onAddBook}) {
+export function BooksSearchOpts({ booksOpts, onAddBook }) {
 
     console.log(booksOpts);
 
     return (
-        <section className="books-search-opts">
+        <section className="books-search-opts-modal">
             {booksOpts.map((book, idx) => {
-                return <div key={idx}>
-                    {book.volumeInfo.title}
-                    <button onClick={()=> {onAddBook(idx)}}></button>
+                return <div className="book-search-opt" key={idx}>
+                    <span> {book.volumeInfo.title}</span>
+                    <button className="fa-solid plus" onClick={() => { onAddBook(idx) }}></button>
                 </div>
             })}
         </section>

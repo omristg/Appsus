@@ -101,7 +101,7 @@ export class BookDetails extends React.Component {
                 <footer>
                     <ReviewList reviews={book.reviews} onRemoveReview={this.onRemoveReview} />
                     <button onClick={this.onToggleReviewModal}>{!isReviewModalShown ? 'Add Review' : 'Close Section'}</button>
-                    {isReviewModalShown && <ReviewAdd onAddReview={this.onAddReview} />}
+                    {isReviewModalShown && <ReviewAdd onToggleReviewModal={this.onToggleReviewModal} onAddReview={this.onAddReview} />}
                 </footer>
             </section >
         )

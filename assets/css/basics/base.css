@@ -6,18 +6,20 @@ body {
     font-family: 'Ubuntu', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #D0B49F;
-    color: black;
+    background-color: #202124;
+    color: #e8eaed;
     font-size: 1.05rem;
 }
 
 h1, h2, h3, h4, h5, h6 {
     margin: 0;
     padding: 0;
+    color: white;
+
 }
 
 button {
-    background-color: #AB6B51;
+    background-color: #41729F;
     font-size: 1.1rem;
     border-radius: .4rem;
     border: none;
@@ -28,18 +30,10 @@ button {
 }
 
 button:hover {
-    background-color: #39918C;
+    background-color: #775439;
 }
 
 a {
     text-decoration: none;
     color: inherit;
-}
-
-
-.check {
-    background-color: red;
-    position: fixed;
-    z-index: 10;
-    width: 300px;
 }

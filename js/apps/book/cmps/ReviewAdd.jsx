@@ -10,6 +10,11 @@ export class ReviewAdd extends React.Component {
         }
     }
 
+    componentDidMount() {
+        console.log(this.props);
+    }
+    
+    
     handleChange = ({ target }) => {
         const field = target.name
         const value = target.value
@@ -42,6 +47,8 @@ export class ReviewAdd extends React.Component {
     render() {
 
         const { fullName, content, readAt, rate } = this.state.review
+        const {onToggleReviewModal} = this.props
+
         return (
             <section className="review-add item-center">
                 <h2>Add Review</h2>
@@ -75,6 +82,7 @@ export class ReviewAdd extends React.Component {
                     </textarea>
                 </form>
                 <button onClick={this.onAddReview}>Add Review</button>
+                <button onClick={onToggleReviewModal}>Canel</button>
             </section>
         )
     }

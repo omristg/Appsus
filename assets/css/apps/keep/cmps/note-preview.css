@@ -4,12 +4,14 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    background-color: #AB6B51;
+    background-color: #323A49;
     padding: .5rem;
     border-radius: .3rem;
     min-height: 8rem;
     transition: box-shadow 0.3s;
 }
+
+/* #145DA0; */
 
 .note-preview:hover {
     box-shadow: inset #020202a3 0 0 4px 3px;
@@ -26,7 +28,7 @@
 
 .note-preview button {
     color: white;
-    background-color: #2F435A;
+    background-color: #323A49;
     font-size: 1.2rem;
     border-radius: 50%;
     padding: .8rem;
@@ -34,7 +36,7 @@
 }
 
 .note-preview button:hover {
-    background-color: #39918C;
+    background-color: #A47551;
 }
 
 

@@ -1,3 +1,26 @@
 .book-add {
-    margin-bottom: 1.2rem;
+    padding-bottom: 1.5rem;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.book-add form {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: .7rem;
+}
+
+.book-add input {
+    border-radius: 5px;
+    border: none;
+    font-family: inherit;
+    padding: .3rem 0;
+    padding-inline-start: .5rem;
+}
+
+.book-add button {
+    padding: .3rem .8rem
 }

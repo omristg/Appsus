@@ -1,1 +1,37 @@
-/* Books Search Options */
+.books-search-opts-modal {
+    width: 60%;
+    padding: 1rem;
+    background-color: #41729F;
+    border-radius: .4rem;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+}
+
+.books-search-opts-modal>*{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex-basis: 20px;
+}
+
+.book-search-opt span{
+    display: block;
+    max-width: 80%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.book-search-opt button {
+    max-width: 20%;
+    background-color: #41729F;
+    color: white;
+    cursor: pointer;
+}
+
+.book-search-opt button:hover {
+    background-color: #775439;
+}
