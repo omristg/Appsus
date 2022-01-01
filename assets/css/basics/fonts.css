@@ -44,17 +44,16 @@
     content: "\f002";
 }
 
-.fa.color::before {
-    content: "\f53f";
-}
 
-.fa.pin::before {
-    content: "\f08d";
-}
 
 .fa.img::before {
     content: "\f03e";
 }
+
+.fa.clone::before {
+    content: "\f24d";
+}
+
 
 
 
@@ -95,4 +94,12 @@
 
 .fa-solid.list::before {
     content: "\f03a";
+}
+
+.fa-solid.color::before {
+    content: "\f53f";
+}
+
+.fa-solid.pin::before {
+    content: "\f08d";
 }

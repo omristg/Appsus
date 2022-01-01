@@ -34,6 +34,7 @@ export class NoteAddTodos extends React.Component {
         return {
             id: null,
             type: 'note-todos',
+            isPinned: false,
             info: {
                 label: titleInput,
                 todos: todos

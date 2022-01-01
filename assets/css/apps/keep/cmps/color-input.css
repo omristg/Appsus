@@ -1,0 +1,22 @@
+.note-preview .color-input {
+    /* background-color: red; */
+    position: absolute;
+    z-index: 10;
+    bottom: 2.75rem;
+    right:5px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 1fr 1fr;
+}
+
+.note-preview .color-input >* {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    border: .5px solid grey;
+    transition: border .3s;
+}
+
+.note-preview .color-input >*:hover {
+    border: 1px solid white;
+}

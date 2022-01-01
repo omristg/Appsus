@@ -7,11 +7,20 @@ export const noteService = {
     getNoteById,
     saveNote,
     getYTVideosOpts,
+    duplicateNote,
 }
 
 const STORAGE_KEY = 'notesDB'
 const API_KEY = 'AIzaSyBhduIz7IWiaUm7jFFSr8_3WGjciMPjjiY'
 
+
+function duplicateNote(note) {
+    const notes = _loadFromStorage()
+    const noteToPush = { ...note, id: utilService.makeId(), isPinned:false }
+    notes.push(noteToPush)
+    _saveToStorage(notes)
+    return Promise.resolve()
+}
 
 _createNotes()
 
@@ -24,11 +33,14 @@ function _createNotes() {
                 id: utilService.makeId(),
                 type: 'note-txt',
                 isPinned: true,
-                info: { txt: 'Fullstack Me Baby!' }
+                info: { txt: 'Fullstack Me Baby!' },
+                styles: { backgroundColor: '#2F435A' }
+
             },
             {
                 id: utilService.makeId(),
                 type: 'note-todos',
+                isPinned: false,
                 info: {
                     label: 'Get my stuff together',
                     todos:
@@ -36,38 +48,41 @@ function _createNotes() {
                             { txt: 'Driving liscence', doneAt: null },
                             { txt: 'Coding power', doneAt: 187111111 }
                         ]
-                }
+                },
+                styles: { backgroundColor: '#2F435A' }
             },
             {
                 id: utilService.makeId(),
                 type: 'note-img',
+                isPinned: false,
                 info: { url: 'https://robohash.org/txt.png', title: 'Bobi and Me' },
-                style: { backgroundColor: '#00d' }
+                style: { backgroundColor: '#AB6B51' }
             },
             {
                 id: utilService.makeId(),
                 type: 'note-txt',
                 isPinned: false,
-                info: { txt: 'Remember to eat lunch' }
+                info: { txt: 'Remember to eat lunch' },
+                styles: { backgroundColor: '#AB6B51' }
             },
             {
                 id: utilService.makeId(),
                 type: 'note-txt',
                 isPinned: false,
-                info: { txt: 'Harry Potter is a series of seven fantasy novels written by British author J. K. Rowling.' }
+                info: { txt: 'Harry Potter is a series of seven fantasy novels written by British author J. K. Rowling.' },
+                styles: { backgroundColor: '#AB6B51' }
             },
             {
                 id: utilService.makeId(),
                 type: 'note-vid',
                 isPinned: false,
-                info: { videoId: 'VP3xjJFfLS8' }
+                info: { videoId: 'VP3xjJFfLS8' },
+                styles: { backgroundColor: '#2F435A' }
             },
         ]
     }
     _saveToStorage(notes)
 }
-
-
 
 
 function getYTVideosOpts(searchVal) {
@@ -100,11 +115,16 @@ function removeNote(noteId) {
     return Promise.resolve(notes)
 }
 
+
 function query(filterBy = null) {
-    const notes = _loadFromStorage()
-    if (!filterBy) return Promise.resolve(notes)
+    let notes = _loadFromStorage()
     const filteredNotes = _getFilteredNote(notes, filterBy)
-    return Promise.resolve(filteredNotes)
+    if (filterBy) return Promise.resolve(filteredNotes)
+    
+    const unPinnedNotes = notes.filter(note => note.isPinned === false)
+    const pinnedNotes = notes.filter(note => note.isPinned === true)
+    notes = { unPinnedNotes, pinnedNotes }
+    return Promise.resolve(notes)
 }
 
 function _getFilteredNote(notes, filterBy) {
@@ -136,3 +156,14 @@ function _loadFromStorage() {
 function _saveToStorage(notes) {
     storageService.saveToStorage(STORAGE_KEY, notes)
 }
+
+
+
+
+
+// function query(filterBy = null) {
+//     const notes = _loadFromStorage()
+//     if (!filterBy) return Promise.resolve(notes)
+//     const filteredNotes = _getFilteredNote(notes, filterBy)
+//     return Promise.resolve(filteredNotes)
+// }

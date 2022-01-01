@@ -6,11 +6,6 @@ export class NoteFilter extends React.Component {
         }
     }
 
-    componentDidMount() {
-        console.log(this.props);
-    }
-    
-    
     handleChange = ({ target }) => {
         const field = target.name
         const value = target.value
@@ -35,6 +30,7 @@ export class NoteFilter extends React.Component {
                         <option value="note-txt">Text</option>
                         <option value="note-todos">Todos</option>
                         <option value="note-img">Images</option>
+                        <option value="note-vid">Videos</option>
                         <option value="">All</option>
                     </select>
                 </form>
