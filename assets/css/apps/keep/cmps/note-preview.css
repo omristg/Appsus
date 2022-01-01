@@ -58,6 +58,7 @@
     right: 10px;
     opacity: 0;
     padding: .5rem;
+    z-index: 10;
     margin: 0;
     background-color: #acacac00;
     transition: opacity .3s;
