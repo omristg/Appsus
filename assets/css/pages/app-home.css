@@ -1,1 +1,30 @@
-/* App Home */
+
+.app-home .home-nav-container {
+    position: fixed;
+    width: 40%;
+    margin: auto;
+    /* display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3.5rem;
+}
+
+.home-nav-container>* {
+    width: 11rem;
+    height: 4.6rem;
+    font-size: 1.5rem;
+    background-color: #41729F;
+    cursor: pointer;
+    border-radius: .4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: .3s;
+}
+
+.home-nav-container>*:hover {
+    background-color: #775439;
+}

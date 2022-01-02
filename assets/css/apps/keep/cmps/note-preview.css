@@ -48,6 +48,7 @@
     align-items: flex-end;
     opacity: 0;
     transition: opacity .3s;
+    padding: .2rem .15rem;
 }
 
 .note-preview .note-btns-fa-container:hover {
@@ -81,4 +82,3 @@
 .note-preview .note-btns-fa-container>*:hover {
     background-color: #acacac4f;
 }
-

@@ -25,9 +25,9 @@ function duplicateNote(note) {
 _createNotes()
 
 function _createNotes() {
-    // let notes = _loadFromStorage()
-    // if (!notes || !notes.length) {
-    //     console.log('from func');
+    let notes = _loadFromStorage()
+    if (!notes || !notes.length) {
+        console.log('from func');
     const notes = [
         {
             id: utilService.makeId(),
@@ -164,8 +164,7 @@ function _createNotes() {
             styles: { backgroundColor: '#17a2b8' }
         },
     ]
-    // }
-    console.log(notes);
+    }
     _saveToStorage(notes)
 }
 

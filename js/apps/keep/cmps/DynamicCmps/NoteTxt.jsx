@@ -11,6 +11,7 @@ export class NoteTxt extends React.Component {
         isColorInputShown: false
     }
 
+
     onChangeNoteColor = (field, value) => {
         this.onToggleColorInput()
         this.setState((prevState) => ({ styles: { ...prevState.styles, [field]: value } }))

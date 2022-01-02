@@ -1,8 +1,19 @@
+const { NavLink } = ReactRouterDOM
+
+
 export function AppHome() {
     return (
-        <section className="home">
-            <h2>This is Home!</h2>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iusto distinctio maiores quaerat numquam? Odio repellendus optio numquam at repudiandae nesciunt deleniti, modi consequuntur consequatur laborum neque voluptate doloremque inventore a, natus voluptas ipsa, repellat aliquid! Beatae asperiores sed quaerat illo sapiente! Exercitationem deserunt laudantium optio fugiat ab expedita eos enim?</p>
+
+        <section className="app-home">
+            <div className="home-nav-container item-center">
+                <NavLink activeClassName="my-active" to="/about">About</NavLink>
+                <NavLink activeClassName="my-active" to="/book">Books</NavLink>
+                <NavLink activeClassName="my-active" to="/note">Keep</NavLink>
+                <NavLink activeClassName="my-active" to="/mail">Mail</NavLink>
+            </div>
+         
         </section>
+
+
     )
 }

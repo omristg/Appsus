@@ -1,10 +1,8 @@
-
 .app-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 1.5rem;
-    /* border-bottom: 1px solid black; */
     color: white;
 }
 
@@ -17,9 +15,6 @@
     padding: 1rem 0;
 }
 
-.main-nav>*:not(:last-child) {
-    margin-inline-end: 1rem;
-}
 
 .main-nav a {
     color: inherit;
@@ -34,3 +29,27 @@
 .main-nav a.my-active {
     color: #A47551;
 }
+
+/* @media screen and (max-width: 600px) {
+    .main-nav {
+        position: fixed;
+        right: 0;
+        top: 0;
+        width: 30vw;
+        height: 50vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        background-color: #323A49;
+        box-shadow: 0 0 4px 6px #222222;
+    }
+} */
+
+/* @media screen and (min-width: 600px) { */
+
+    .main-nav>*:not(:last-child) {
+        margin-inline-end: 1rem;
+    }
+
+/* } */

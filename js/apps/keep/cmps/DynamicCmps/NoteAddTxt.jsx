@@ -3,7 +3,7 @@ import { noteService } from "../../services/note.service.js"
 export class NoteAddTxt extends React.Component {
     state = {
         txt: ''
-    }
+}
 
     inputRef = React.createRef()
 
